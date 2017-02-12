@@ -66,14 +66,13 @@ namespace FZY.Web.Controllers
         {
             if (string.IsNullOrWhiteSpace(returnUrl))
             {
-                returnUrl = Request.ApplicationPath;
+                returnUrl = Request.ApplicationPath.Length > 1?Request.ApplicationPath + "/" : Request.ApplicationPath ;
             }
 
             return View(
                 new LoginFormViewModel
                 {
-                    ReturnUrl = returnUrl,
-                    IsMultiTenancyEnabled = _multiTenancyConfig.IsEnabled
+                    ReturnUrl = returnUrl
                 });
         }
 
@@ -86,14 +85,14 @@ namespace FZY.Web.Controllers
             var loginResult = await GetLoginResultAsync(
                 loginModel.UsernameOrEmailAddress,
                 loginModel.Password,
-                loginModel.TenancyName
+                ""
                 );
 
-            await SignInAsync(loginResult.User, loginResult.Identity, loginModel.RememberMe);
+            await SignInAsync(loginResult.User, loginResult.Identity, true);
 
             if (string.IsNullOrWhiteSpace(returnUrl))
             {
-                returnUrl = Request.ApplicationPath;
+                returnUrl = Request.ApplicationPath.Length > 1?Request.ApplicationPath + "/" : Request.ApplicationPath ;
             }
 
             if (!string.IsNullOrWhiteSpace(returnUrlHash))

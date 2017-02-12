@@ -20,7 +20,7 @@ namespace FZY.Web
 
             //~/Bundles/vendor/bottom (Included in the bottom for fast page load)
             bundles.Add(
-                new ScriptBundle("~/Bundles/vendor/js/bottom")
+                new ScriptBundle("~/Bundles/vendor/js/top")
                     .Include(
                         "~/Scripts/jquery-2.2.0.min.js"
                     )

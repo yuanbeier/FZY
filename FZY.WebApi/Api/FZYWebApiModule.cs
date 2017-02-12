@@ -4,6 +4,8 @@ using Abp.Application.Services;
 using Abp.Configuration.Startup;
 using Abp.Modules;
 using Abp.WebApi;
+using Swashbuckle.Application;
+using System.Linq;
 
 namespace FZY.Api
 {
@@ -19,6 +21,20 @@ namespace FZY.Api
                 .Build();
 
             Configuration.Modules.AbpWebApi().HttpConfiguration.Filters.Add(new HostAuthenticationFilter("Bearer"));
+
+            ConfigureSwaggerUi();
+        }
+
+        private void ConfigureSwaggerUi()
+        {
+            Configuration.Modules.AbpWebApi().HttpConfiguration
+                .EnableSwagger(c =>
+                {
+                    c.SingleApiVersion("v1", "SwaggerIntegrationDemo.WebApi");
+                    c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
+                })
+                .EnableSwaggerUi();
         }
     }
 }
+

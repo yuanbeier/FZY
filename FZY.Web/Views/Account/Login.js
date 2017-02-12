@@ -3,20 +3,21 @@
     $(function () {
         $('#LoginButton').click(function (e) {
             e.preventDefault();
-            abp.ui.setBusy(
-                $('#LoginArea'),
-                abp.ajax({
-                    url: abp.appPath + 'Account/Login',
-                    type: 'POST',
-                    data: JSON.stringify({
-                        tenancyName: $('#TenancyName').val(),
-                        usernameOrEmailAddress: $('#EmailAddressInput').val(),
-                        password: $('#PasswordInput').val(),
-                        rememberMe: $('#RememberMeInput').is(':checked'),
-                        returnUrlHash: $('#ReturnUrlHash').val()
-                    })
-                })
-            );
+            $.ajax({
+                url: $("#loginform").attr("action"),
+                type: 'POST',
+                data: JSON.stringify({
+                    usernameOrEmailAddress: $('#EmailAddressInput').val(),
+                    password: $('#PasswordInput').val()
+                }),
+                contentType: "application/json",
+                success: function (data) {
+                    if (data.success) {
+                        location.href = data.targetUrl;
+                    }
+                }
+            });
+          
         });
 
         $('a.social-login-link').click(function () {
@@ -26,7 +27,6 @@
             $form.submit();
         });
 
-        $('#ReturnUrlHash').val(location.hash);
 
         $('#LoginForm input:first-child').focus();
     });

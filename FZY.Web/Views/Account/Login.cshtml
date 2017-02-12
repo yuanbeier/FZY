@@ -1,94 +1,61 @@
 ﻿@using Abp.Web.Mvc.Extensions
 @using Microsoft.Owin.Security
 @model FZY.Web.Models.Account.LoginFormViewModel
-@section Styles
-{
-    @Html.IncludeStyle("~/Views/Account/Login.css")
+@{
+    Layout = null;
 }
-@section Scripts
-{
-    @Html.IncludeScript("~/Views/Account/Login.js")
-}
-<div class="container">
-    <div id="LoginArea" class="row">
-        <div class="col-lg-12">
-            <div class="well bs-component">
-                <form id="LoginForm" class="form-horizontal" action="@(Url.Action("Login", "Account"))?returnUrl=@(Model.ReturnUrl)" method="POST">
-                    <fieldset>
-                        <legend>@L("LogIn")</legend>
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="renderer" content="webkit">
+    <title>登录</title>
+    <link rel="stylesheet" href="~/Content/pintuer.css">
+    <link rel="stylesheet" href="~/Content/admin.css">
 
-                        @if (Model.IsMultiTenancyEnabled)
-                        {
+</head>
+<body>
+    <div class="bg"></div>
+    <div class="container">
+        <div class="line bouncein">
+            <div class="xs6 xm4 xs3-move xm4-move">
+                <div style="height:150px;"></div>
+                <div class="media media-y margin-big-bottom">
+                </div>
+                <form id="loginform" action="@(Url.Action("Login", "Account"))?returnUrl=@(Model.ReturnUrl)" method="post">
+                    <div class="panel loginbox">
+                        <div class="text-center margin-big padding-big-top"><h1>后台管理中心</h1></div>
+                        <div class="panel-body" style="padding:30px; padding-bottom:10px; padding-top:10px;">
                             <div class="form-group">
-                                <div class="col-lg-12">
-                                    <input type="text" class="form-control" id="TenancyName" placeholder="@L("TenancyName")" required maxlength="@FZY.MultiTenancy.Tenant.MaxTenancyNameLength">
-                                    <span class="text-muted">@L("CanBeEmptyToLoginAsHost")</span>
+                                <div class="field field-icon-right">
+                                    <input type="text" class="input input-big" name="EmailAddressInput" id="EmailAddressInput" placeholder="登录账号" data-validate="required:请填写账号" />
+                                    <span class="icon icon-user margin-small"></span>
                                 </div>
                             </div>
-                        }
-                        else
-                        {
-                            <input type="hidden" id="TenancyName" value="">
-                        }
-
-                        <div class="form-group">
-                            <div class="col-lg-12">
-                                <input type="text" class="form-control" id="EmailAddressInput" placeholder="@L("UserNameOrEmail")" required maxlength="@FZY.Users.User.MaxEmailAddressLength">
+                            <div class="form-group">
+                                <div class="field field-icon-right">
+                                    <input type="password" class="input input-big" name="password" id="PasswordInput" placeholder="登录密码" data-validate="required:请填写密码" />
+                                    <span class="icon icon-key margin-small"></span>
+                                </div>
                             </div>
-                        </div>
+                            <div class="form-group">
+                                <div class="field">
+                                    <input type="text" class="input input-big" name="code" placeholder="填写右侧的验证码" data-validate="required:请填写右侧的验证码" />
+                                    <img src="../images/passcode.jpg" alt="" width="100" height="32" class="passcode" style="height:43px;cursor:pointer;" onclick="this.src=this.src+'?'">
 
-                        <div class="form-group">
-                            <div class="col-lg-12">
-                                <input type="password" class="form-control" id="PasswordInput" placeholder="@L("Password")" required maxlength="@FZY.Users.User.MaxPlainPasswordLength">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" id="RememberMeInput">
-                                        <span class="ripple"></span>
-                                        <span class="check"></span> @L("RememberMe")
-                                    </label>
                                 </div>
                             </div>
                         </div>
-
-                        <input id="ReturnUrlHash" type="hidden" name="returnUrlHash" />
-
-                        <div class="form-group">
-                            <div class="col-lg-12">
-                                <button id="LoginButton" type="submit" class="btn btn-primary"><i class="fa fa-sign-in"></i> @L("LogIn")</button>
-                                <a class="btn btn-success" href="@Url.Action("Register")"><i class="fa fa-sign-in"></i> @L("Register")</a>
-                            </div>
-                        </div>
-                    </fieldset>
+                        <div style="padding:30px;"><input id="LoginButton" type="button" class="button button-block bg-main text-big input-big" value="登录"></div>
+                    </div>
                 </form>
-
-                @{
-                    var loginProviders = Context.GetOwinContext().Authentication.GetExternalAuthenticationTypes().ToList();
-                }
-
-                @if (loginProviders.Count > 0)
-                {
-                    <p>@L("OrLoginWith"):</p>
-                    
-
-                    using (Html.BeginForm("ExternalLogin", "Account", method: FormMethod.Post))
-                    {
-                        @Html.AntiForgeryToken()
-
-                        <input type="hidden" name="returnUrl" value="@ViewBag.ReturnUrl" />
-                        <input type="hidden" name="provider" value="" />
-
-                        foreach (var provider in loginProviders)
-                        {
-                            <a class="btn btn-default btn-sm social-login-link" title="@provider.AuthenticationType"
-                               data-provider="@provider.AuthenticationType"
-                               href="javascript:;">
-                                <i class="fa fa-@(provider.AuthenticationType.ToLower())"></i> @provider.AuthenticationType
-                            </a>
-                        }
-                    }
-                }
-
             </div>
         </div>
     </div>
-</div>
+    <script src="~/Scripts/jquery-2.2.0.js"></script>
+    <script src="~/js/pintuer.js"></script>
+    <script src="~/Views/Account/Login.js"></script>
+</body>
+</html>

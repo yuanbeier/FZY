@@ -3,12 +3,16 @@ using Abp.Zero.EntityFramework;
 using FZY.Authorization.Roles;
 using FZY.MultiTenancy;
 using FZY.Users;
+using System.Data.Entity;
+using FZY.WebSite;
 
 namespace FZY.EntityFramework
 {
     public class FZYDbContext : AbpZeroDbContext<Tenant, Role, User>
     {
         //TODO: Define an IDbSet for your Entities...
+
+        public IDbSet<HomePic> HomePic { set; get; }
 
         /* NOTE: 
          *   Setting "Default" to base class helps us when working migration commands on Package Manager Console.
