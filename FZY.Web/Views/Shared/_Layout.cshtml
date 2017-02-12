@@ -1,0 +1,160 @@
+﻿@using System.Threading
+@using System.Web.Optimization
+@using Abp.Timing
+@using Abp.Web.Mvc.Extensions
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=7" />
+    <title>菁禾塑料</title>
+    <meta name="keywords" content="Harvest  菁禾塑料" />
+    <meta name="description" content="Harvest occupies 14,000 square meters and located in National Eco-industrial Park, Danzao, Nanhai, Foshan City, Guangdong province, which is near to Guangzhou and Shenzhen Port. It produces a variety of vacuum thermoforming items made from PP, PS, OPS, PET." />
+    @Styles.Render("~/Bundles/vendor/css")
+    @RenderSection("styles", required: false)
+</head>
+<body>
+    <div id="all">
+        <div class="top">
+            <div class="top_middle">
+                <div class="search">
+                    <form method="post" action="search.php">
+                        <input name="f_keyword" id="seoname" type="text" value="search" style="width:140px;height:24px;border:none;float:left;background:#008837;color:#ffffff;" />
+                        <input name="search" id="seosubmit" type="submit" value="" style="width:26px;height:23px;flat:left;background:url(images/search_icon_03.png);border:none;">
+                    </form>
+                </div>
+
+                <div class="lang">
+                    <p class="ch"><a href="/cn">CH</a></p>
+                    <p class="ch"><a href="/">EN</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="conts">
+
+            @Html.Partial("_TopBar")
+
+            <div class="banner">
+                @RenderBody()
+            </div>
+            <div class="mid">
+                <div class="mid_contents">
+                    <!--[自我介绍]-->
+                    <div class="mid_contents_left">
+                        <div class="title">
+                            <p>Introduction</p>
+                            <div class="remarks">
+
+                                FOSHAN CITY NANHAI HARVEST PLASTIC CO.,LTD occupies 14,000 square meters and located in National Eco-industrial Park, Danzao, Nanhai, Foshan City, Guangdong province, P.R.C., which is near to Guangzhou and Shenzhen Port. It produces a variety of vacuum thermoforming items made from PP, PS, OPS, PET. Especially for safe, eco-friendly, environmental protection disposable food packaging. Harvest has got the certifications ISO 9 0 0 1ISO 1 4 0 0 1ISO 2 2 0 0 0. Every year we will send our products to SGS for year-testing. In addition, we offer the satisfied service from design, sampling, tools development to manufacturing for your special request. Along with careful quality control and production systems, we have many advanced equipment and facilities to perfect every detail in the flow of production and satisfy customers with great products.
+                            </div>
+                        </div>
+                    </div>
+                    <!--[自我介绍]-->
+
+                    <div class="mid_contents_right">
+                        <div class="right_title">
+                            <p>Video</p>
+                        </div>
+                        <script type="text/javascript" src="/templets/default/js/common.js"></script>
+                        <link rel="stylesheet" type="text/css" href="/templets/default/js/colorbox/colorbox.css" media="screen">
+                        <script src="/templets/default/js/colorbox/jquery.colorbox-min.js"></script>
+                        <script src="/templets/default/js/jquery.imagefit.js"></script>
+
+                        <script>
+						(function($){
+							$(window).load(function(){
+								//自适应
+								rz();
+
+								$(window).bind('resize', function(){
+									rz();
+								});
+
+								$('.if li .p_img').imagefit();
+
+								$(".bb").colorbox();
+
+							});
+						})(jQuery);
+                        </script>
+
+                        <style type="text/css">
+                            #index_box {
+                                z-index: 0;
+                            }
+
+                                #index_box .box {
+                                    z-index: 1;
+                                }
+
+                            .main-content h2 {
+                                margin-bottom: 18px;
+                            }
+
+                            .f-menu {
+                                margin-left: -48px;
+                            }
+
+                            #copyright {
+                                padding-left: 130px;
+                            }
+
+                            .if li {
+                                width: 210px;
+                                height: 180px;
+                                margin: 18px;
+                                margin-top: 0;
+                                display: inline-block;
+                                vertical-align: top;
+                            }
+
+                                .if li .p_img {
+                                    width: 345px;
+                                    height: 217px;
+                                    position: relative;
+                                    left: -18px;
+                                }
+
+                                .if li .p_title {
+                                    text-align: center;
+                                    width: 210px;
+                                    height: 20px;
+                                    line-height: 20px;
+                                }
+                        </style>
+
+                        <div class="video_list">
+                            <ul class="if">
+
+                                <li>
+                                    <div class="p_img">
+                                        <a href="getVideo.php?id=1" class="bb" title="video"><img src="http://www.have-pack.com/uploads/thumb/attached/image/2015/06/20150613151609_53823_345_217.jpg" alt="video" /></a>
+                                    </div>
+
+
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <!-- 代码 结束 -->
+            <div class="clear"></div>
+            <div class="footer">
+                <div class="footer_middle">
+                    <p class="footer_title"><img style="position:relative;top:20px;" src="images/foot_03.png" />&nbsp &nbsp &nbsp <span>Foshan City Nanhai Harvest Plastic Co., Ltd</span></p>
+                    <p style="margin-top:5px;">National Demonstration Eco-industrial Park,</p>
+                    <p style="margin-top:5px;">Danzao, Nanhai, Foshan City, Guangdong, P.R.C.</p>
+                    <p style="margin-top:5px;">Tel: 86-757-85406601    Fax: 86-757-85406602</p>
+                    <p style="margin-top:5px;">Official Website:  www.have-pack.com   Alibaba Website: http://harvestpack.en.alibaba.com/</p>
+                </div>
+            </div>
+        </div>
+      
+   </div>
+        @Scripts.Render("~/Bundles/vendor/js/bottom")
+
+        <!-- View specific scripts -->
+        @RenderSection("scripts", required: false)
+</body>
+</html>
