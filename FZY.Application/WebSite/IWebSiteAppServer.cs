@@ -26,5 +26,12 @@ namespace FZY.WebSite
         /// </summary>
         /// <returns></returns>
         Task<List<HomePicOutput>> GetHomePicListAsync();
+
+        /// <summary>
+        /// 删除首页图片
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        Task DeleteHomePicAsync(int id);
     }
 }

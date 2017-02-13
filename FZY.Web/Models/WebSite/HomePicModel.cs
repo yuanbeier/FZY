@@ -1,32 +1,22 @@
 ﻿using Abp.AutoMapper;
-using Abp.Domain.Entities;
-using Abp.Domain.Entities.Auditing;
+using FZY.WebSite.Dto;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web;
 
-namespace FZY.WebSite.Dto
+namespace FZY.Web.Models.WebSite
 {
-    /// <summary>
-    /// 首页图片
-    /// </summary>
-    [AutoMap(typeof(HomePic))]
-    public class HomePicOutput:FullAuditedEntity
+    [AutoMap(typeof(HomePicInput))]
+    public class HomePicModel
     {
-        /// <summary>
-        /// 图片标题
+        /// 图片名称
         /// </summary>
-        [MaxLength(50)]
         public string Name { set; get; }
 
-   
         /// <summary>
         /// 描述
         /// </summary>
-        [MaxLength(100)]
         public string Description { set; get; }
 
         /// <summary>
@@ -37,9 +27,7 @@ namespace FZY.WebSite.Dto
         /// <summary>
         /// 图片地址
         /// </summary>
-        [MaxLength(200)]
         public string ImageUrl { set; get; }
-
 
         /// <summary>
         /// 链接地址

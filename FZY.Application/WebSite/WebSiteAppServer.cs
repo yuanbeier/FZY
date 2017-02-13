@@ -6,12 +6,14 @@ using System.Threading.Tasks;
 using Abp.AutoMapper;
 using Abp.Domain.Repositories;
 using FZY.WebSite.Dto;
+using Abp.Authorization;
 
 namespace FZY.WebSite
 {
     /// <summary>
     /// 网站服务
     /// </summary>
+    [AbpAuthorize]
     public class WebSiteAppServer:FZYAppServiceBase,IWebSiteAppServer
     {
         private readonly IRepository<HomePic> _homePicRepository;
@@ -31,6 +33,16 @@ namespace FZY.WebSite
         {
             var homePic = input.MapTo<HomePic>();
             await _homePicRepository.InsertAsync(homePic);
+        }
+
+        /// <summary>
+        /// 删除首页图片
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public async Task DeleteHomePicAsync(int id)
+        {
+            await _homePicRepository.DeleteAsync(id);
         }
 
         /// <summary>

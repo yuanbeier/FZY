@@ -6,13 +6,13 @@
 <div class="panel admin-panel margin-top" id="add">
     <div class="panel-head"><strong><span class="icon-pencil-square-o"></span> 增加内容</strong></div>
     <div class="body-content">
-        <form method="post" class="form-x" action="">
+        <form method="post" class="form-x" action="@Url.Action("add")">
             <div class="form-group">
                 <div class="label">
                     <label>标题：</label>
                 </div>
                 <div class="field">
-                    <input type="text" class="input w50" value="" name="title" data-validate="required:请输入标题" />
+                    <input type="text" class="input w50" value="" name="Name" data-validate="required:请输入标题" />
                     <div class="tips"></div>
                 </div>
             </div>
@@ -40,7 +40,7 @@
                     <label>描述：</label>
                 </div>
                 <div class="field">
-                    <textarea type="text" class="input" name="note" style="height:120px;" value=""></textarea>
+                    <textarea type="text" class="input" name="description" style="height:120px;" value=""></textarea>
                     <div class="tips"></div>
                 </div>
             </div>

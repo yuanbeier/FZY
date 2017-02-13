@@ -32,12 +32,18 @@ namespace FZY.WebSite.Dto
         /// <summary>
         /// 排序
         /// </summary>
-        public int Order { set; get; }
+        public int Sort { set; get; }
 
         /// <summary>
         /// 图片地址
         /// </summary>
         [MaxLength(200)]
         public string ImageUrl { set; get; }
+
+
+        /// <summary>
+        /// 链接地址
+        /// </summary>
+        public string Url { set; get; }
     }
 }

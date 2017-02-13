@@ -6,7 +6,7 @@
 <div class="panel admin-panel">
     <div class="panel-head"><strong class="icon-reorder"> 内容列表</strong></div>
     <div class="padding border-bottom">
-        <button type="button" class="button border-yellow" onclick="window.location.href='#add'"><span class="icon-plus-square-o"></span> 添加内容</button>
+        <button type="button" class="button border-yellow" onclick="window.location.href='@Url.Action("add")'"><span class="icon-plus-square-o"></span> 添加内容</button>
     </div>
     <table id="advTable" class="table table-hover text-center">
         <thead>
@@ -27,19 +27,26 @@
 @section Scripts{
 
     <script type="text/javascript">
-        function del(id, mid) {
+        function del(id) {
             if (confirm("您确定要删除吗?")) {
-
+                $.ajax({
+                    url: virtualDirName + "api/services/app/webSiteAppServer/DeleteHomePicAsync",
+                    type: "Post",
+                    contentType: "application/json",
+                    data: JSON.stringify({ id: id }),
+                    success: function (data) {
+                        alert("删除成功！");
+                    }
+                });
             }
         }
 
         $(document).ready(function () {
             $.ajax({
-                url: virtualPath + "api/services/app/webSiteAppServer/GetHomePicListAsync",
+                url: virtualDirName + "api/services/app/webSiteAppServer/GetHomePicListAsync",
                 type: "Post",
                 contentType:"application/json",
                 success: function (data) {
-                    console.log(data);
                     if (data.success) {
                         $advTable = $("#advTable tbody");
                         var tableHtml = "";
@@ -47,11 +54,10 @@
                         for (var i = 0; i < length; i++) {
                             tableHtml +=
                           '<tr><td>' + (i + 1) + '</td><td><img src="' + data.result[i].imageUrl + '" alt="" width="120" height="50" /></td>' +
-                            '<td>' + data.result[i].name + '</td><td>' + data.result[i].decription + '</td><td>' + data.result[i].sort + '</td><td><div class="button-group">' +
+                            '<td>' + data.result[i].name + '</td><td>' + data.result[i].description + '</td><td>' + data.result[i].sort + '</td><td><div class="button-group">' +
                             '<a class="button border-red" href="javascript:void(0)" onclick="return del(' + data.result[i] + ')">' +
                             '<span class="icon-trash-o"></span> 删除</a></div></td></tr>';
                         }
-                        console.log(tableHtml);
                         $advTable.html(tableHtml);
                     }
                 }

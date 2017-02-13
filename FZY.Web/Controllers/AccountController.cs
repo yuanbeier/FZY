@@ -88,7 +88,7 @@ namespace FZY.Web.Controllers
                 ""
                 );
 
-            await SignInAsync(loginResult.User, loginResult.Identity, true);
+            await SignInAsync(loginResult.User, loginResult.Identity, false);
 
             if (string.IsNullOrWhiteSpace(returnUrl))
             {
