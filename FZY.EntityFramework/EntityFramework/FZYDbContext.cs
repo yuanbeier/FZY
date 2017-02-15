@@ -5,6 +5,7 @@ using FZY.MultiTenancy;
 using FZY.Users;
 using System.Data.Entity;
 using FZY.WebSite;
+using FZY.WebSite.Sys;
 
 namespace FZY.EntityFramework
 {
@@ -13,6 +14,8 @@ namespace FZY.EntityFramework
         //TODO: Define an IDbSet for your Entities...
 
         public IDbSet<HomePic> HomePic { set; get; }
+
+        public IDbSet<FileRelation> FileRelation { set; get; }
 
         /* NOTE: 
          *   Setting "Default" to base class helps us when working migration commands on Package Manager Console.

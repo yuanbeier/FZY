@@ -1,0 +1,53 @@
+﻿@model Topevery.Web.Models.File.UploadFileDto
+@using Abp.Web.Mvc.Extensions
+
+<div class="uploaddiv" id="@Model.UploadId"></div>
+<ul class="uploadImg"></ul>
+<div class="hiddenDiv" style="display: none">
+    <ul>
+        <li>
+            <div class="imgWrap">
+                <img src='{imgUrl}' width="80" height="80" alt="{imgName}" />
+            </div>
+            <span class="delete"><a id="{fileId}"><img src="@{@ApplicationPath}images/cancel.png" /></a></span>
+            <p>{imgName}</p>
+        </li>
+    </ul>
+    <input type="hidden" class="hiddenFile" name="@{@Model.UploadId}hiddenFile" />
+</div>
+
+    @Html.IncludeScript("~/Libs/webuploader-0.1.5/webuploader.js")
+    @Html.IncludeScript("~/Js/uploader.js")
+<script>
+    $(document).ready(function () {
+        /* 文件上传初始化*/
+        @{ string extName = !string.IsNullOrEmpty(Model.UploadContentType) ? Model.UploadContentType : "jpg,png,xls,doc,docx,xlsx,pdf,jpeg";}
+        $("#@Model.UploadId").powerWebUpload({
+            accept: {
+                title: "",
+                extensions: "@extName",
+                mimeTypes: ""
+            },
+            auto: true,
+            fileNumLimit: 5,
+            callback: function (response) {
+                if (args.callback) {
+                    args.callback(response);
+                }
+            }
+        });
+
+        @{
+            if (@Model.ActivityInstanceId.HasValue)
+            {
+                 @:topevery.setUploadFile("", "", "@Model.ActivityInstanceId.Value", "@Model.UploadId");
+                     }
+             else if (@Model.ModuleId.HasValue && @Model.KeyId.HasValue)
+             {
+                 @:topevery.setUploadFile("@Model.ModuleId.Value", "@Model.KeyId.Value", "","@Model.UploadId");
+                     }
+         }
+
+    })
+
+</script>

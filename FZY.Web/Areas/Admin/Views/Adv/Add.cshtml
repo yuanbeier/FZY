@@ -1,4 +1,5 @@
-﻿
+﻿@using Topevery.Web.Models.File
+
 @{
     ViewBag.Title = "Add";
 }
@@ -26,14 +27,10 @@
                 </div>
             </div>
             <div class="form-group">
-                <div class="label">
-                    <label>图片：</label>
-                </div>
-                <div class="field">
-                    <input type="text" id="url1" name="img" class="input tips" style="width:25%; float:left;" value="" data-toggle="hover" data-place="right" data-image="" />
-                    <input type="button" class="button bg-blue margin-left" id="image1" value="+ 浏览上传" style="float:left;">
-                    <div class="tipss">图片尺寸：1920*500</div>
-                </div>
+                @Html.Partial("UploadFilePartialView", new UploadFileDto()
+               {
+                   UploadId = "IdFile"
+               })
             </div>
             <div class="form-group">
                 <div class="label">

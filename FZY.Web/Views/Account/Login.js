@@ -3,20 +3,19 @@
     $(function () {
         $('#LoginButton').click(function (e) {
             e.preventDefault();
-            $.ajax({
+
+            var callback = function (data) {
+                location.href = data.targetUrl;
+            }
+            topevery.ajax({
                 url: $("#loginform").attr("action"),
                 type: 'POST',
                 data: JSON.stringify({
                     usernameOrEmailAddress: $('#EmailAddressInput').val(),
                     password: $('#PasswordInput').val()
                 }),
-                contentType: "application/json",
-                success: function (data) {
-                    if (data.success) {
-                        location.href = data.targetUrl;
-                    }
-                }
-            });
+                contentType: "application/json"
+            },callback,false);
           
         });
 

@@ -319,15 +319,19 @@
     <Content Include="images\focus_btn.png" />
     <Content Include="images\foot_03.png" />
     <Content Include="images\IMG_4491.JPG" />
+    <Content Include="images\IMG_4491.png" />
     <Content Include="images\IMG_4492.JPG" />
+    <Content Include="images\IMG_4492.png" />
     <Content Include="images\passcode.jpg" />
     <Content Include="images\tmbg-white.png" />
     <Content Include="images\y.jpg" />
+    <Content Include="js\base.js" />
     <Content Include="js\pintuer.js" />
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Adv\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Adv\Add.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="js\uploader.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
@@ -474,6 +478,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Results\ChallengeResult.cs" />
     <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="Models\File\UploadFileDto.cs" />
     <Compile Include="Models\Layout\UserMenuOrLoginLinkViewModel.cs" />
     <Compile Include="Models\Account\LoginFormViewModel.cs" />
     <Compile Include="Models\Account\LoginViewModel.cs" />
@@ -509,6 +514,7 @@
     <Content Include="Views\Layout\_UserMenuOrLoginLink.cshtml" />
     <Content Include="Views\Tenants\Index.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
+    <Content Include="Views\Shared\UploadFilePartialView.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -538,6 +544,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\Account\" />
+    <Folder Include="Libs\webuploader-0.1.5\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

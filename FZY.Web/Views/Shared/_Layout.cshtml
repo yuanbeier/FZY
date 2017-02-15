@@ -11,6 +11,10 @@
     @Styles.Render("~/Bundles/vendor/css")
     @Scripts.Render("~/Bundles/vendor/js/top")
     @RenderSection("styles", required: false)
+    <script type="text/javascript">
+        /* 虚拟目录名称 */
+        var  virtualDirName = '@ApplicationPath';
+    </script>
    
 </head>
 <body>
@@ -29,7 +33,7 @@
             <div class="clear"></div>
             <div class="footer">
                 <div class="footer_middle">
-                    <p class="footer_title"><img style="position:relative;top:20px;" src="images/IMG_4491.JPG" />&nbsp &nbsp &nbsp <span>Foshan City Nanhai Harvest Plastic Co., Ltd</span></p>
+                    <p class="footer_title"><img style="position:relative;top:20px;" src="~/images/IMG_4491.png" />&nbsp &nbsp &nbsp <span>Foshan City Nanhai Harvest Plastic Co., Ltd</span></p>
                     <p style="margin-top:5px;">National Demonstration Eco-industrial Park,</p>
                     <p style="margin-top:5px;">Danzao, Nanhai, Foshan City, Guangdong, P.R.C.</p>
                     <p style="margin-top:5px;">Tel: 86-757-85406601    Fax: 86-757-85406602</p>

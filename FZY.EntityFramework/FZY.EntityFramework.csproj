@@ -136,6 +136,10 @@
     <Compile Include="Migrations\201702131409381_updateHomePic2.Designer.cs">
       <DependentUpon>201702131409381_updateHomePic2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702151339118_addFileRelation.cs" />
+    <Compile Include="Migrations\201702151339118_addFileRelation.Designer.cs">
+      <DependentUpon>201702151339118_addFileRelation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="FZYDataModule.cs" />
@@ -170,6 +174,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201702131409381_updateHomePic2.resx">
       <DependentUpon>201702131409381_updateHomePic2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702151339118_addFileRelation.resx">
+      <DependentUpon>201702151339118_addFileRelation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,18 +1,18 @@
-﻿<!DOCTYPE html>
-<html lang="zh-cn">
+﻿@using Abp.Web.Mvc.Extensions
+@using System.Web.Optimization
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=7">
+   
     <title>后台管理中心</title>
     <link rel="stylesheet" href="~/Content/pintuer.css">
     <link rel="stylesheet" href="~/Content/admin.css">
-    <script src="~/Scripts/jquery-2.2.0.js"></script>
-    <script src="~/js/pintuer.js"></script>
+    @Scripts.Render("~/Bundles/vendor/js/top")
+    @RenderSection("styles", required: false)
     <script type="text/javascript">
         /* 虚拟目录名称 */
-      var  virtualDirName = '@ApplicationPath';
+        virtualDirName = '@ApplicationPath';
     </script>
 </head>
 <body>

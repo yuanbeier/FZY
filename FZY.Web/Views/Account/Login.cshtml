@@ -14,7 +14,10 @@
     <title>登录</title>
     <link rel="stylesheet" href="~/Content/pintuer.css">
     <link rel="stylesheet" href="~/Content/admin.css">
-
+    <script >
+        /* 虚拟目录名称 */
+        virtualDirName = '@ApplicationPath';
+    </script>
 </head>
 <body>
     <div class="bg"></div>
@@ -24,7 +27,7 @@
                 <div style="height:150px;"></div>
                 <div class="media media-y margin-big-bottom">
                 </div>
-                <form id="loginform" action="@(Url.Action("Login", "Account"))?returnUrl=@(Model.ReturnUrl)" method="post">
+                <form id="loginform" action="Account/Login?returnUrl=@(Model.ReturnUrl)" method="post">
                     <div class="panel loginbox">
                         <div class="text-center margin-big padding-big-top"><h1>后台管理中心</h1></div>
                         <div class="panel-body" style="padding:30px; padding-bottom:10px; padding-top:10px;">
@@ -55,6 +58,7 @@
         </div>
     </div>
     <script src="~/Scripts/jquery-2.2.0.js"></script>
+    <script src="~/js/base.js"></script>
     <script src="~/js/pintuer.js"></script>
     <script src="~/Views/Account/Login.js"></script>
 </body>
