@@ -1,4 +1,4 @@
-﻿@{ 
+﻿@{
     Layout = null;
 }
 @using System.Web.Optimization
@@ -12,32 +12,29 @@
     <meta name="keywords" content="寿司盒子" />
     @Styles.Render("~/Bundles/vendor/css")
     @Scripts.Render("~/Bundles/vendor/js/top")
-    <script src="~/js/jquery.nicescroll.js"></script>
-    <script type="text/javascript">
-        /* 虚拟目录名称 */
-        var  virtualDirName = '@ApplicationPath';
-    </script>
 </head>
 <body>
     <div id="all">
         <div class="top">
             <div class="top_middle">
                 <div class="search">
-               
+                    <form>
+                     
+                    </form>
                 </div>
 
                 <div class="lang">
-                   
+                
                 </div>
             </div>
         </div>
 
         <div class="conts">
             <div class="aa">
-                <img src="~/images/about/20150610140937_12818.jpg" style="width:100%;height:100%;position:absolute;">
+                <img src="~/images/Contract/20150610141026_48018.jpg" style="width:100%;height:100%;position:absolute;">
             </div>
+ 
             @Html.Partial("_TopBar")
-
             <!--[切换图]-->
 
             <div class="banner">
@@ -50,18 +47,17 @@
                     <div class="about_left">
                         <div class="about_title">
                             <p style="position:relative;
-							top:10px;">About US</p>
+							top:10px;">CONTACT US</p>
                             <ul>
-                                <li><a href="@Url.Action("Index","About")">>> <span>ABOUT US</span></a></li>
+                                <li><a href="@Url.Action("index","contract")">>> <span>CONTACT US</span></a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="about_right">
                         <div class="about_right_title">
-                            <p>Position：Home > ABOUT US > ABOUT US</p>
+                            <p>Position：Home > CONTACT US > CONTACT US</p>
                         </div>
                         <div class="contents">
-
                             <style type="text/css">
                                 #sucai {
                                     width: 681px;
@@ -81,24 +77,33 @@
                             </style>
                             <div id="sucai">
                                 <p>
-                                    <strong><span style="color:#000000;">FOSHAN CITY NANHAI HARVEST PLASTIC CO.,LTD occupies about 14,000 square meters and located in National Eco-industrial Park, Danzao, Nanhai, Foshan City, Guangdong province, China, which is near to Guangzhou and Shenzhen Port. It produces a variety of vacuum thermoforming items made from PP, PS, OPS, PET. Especially for safe, eco-friendly,environmental protection disposable food packaging.</span></strong><br />
+                                    <span style="color:#000000;"><strong>Foshan City Nanhai Harvest Plastic Co., Ltd</strong></span>
+                                </p>
+                                <p>
+                                    <span style="color:#000000;"><strong> National Demonstration Eco-industrial Park,Danzao, Nanhai, Foshan City, Guangdong, P.R.C.</strong></span>
+                                </p>
+                                <p>
+                                    <span style="color:#000000;"><strong> Tel:86-757-85406601 </strong></span>
+                                </p>
+                                <p>
+                                    <span style="color:#000000;"><strong>Fax:86-757-85406602</strong></span>
+                                </p>
+                                <p>
+                                    <span style="color:#000000;"><strong> Official Website: www.have-pack.com </strong></span>
+                                </p>
+                                <p>
+                                    <span style="color:#000000;"><strong>Alibaba Website: http://harvestpack.en.alibaba.com/</strong></span>
+                                </p>
+                                <p>
                                     <br />
-                                    <strong><span style="color:#000000;">1.) HARVEST has established for over 11 years, and we are specialized in produces a variety of vacuum thermoforming items made from PP, PS, OPS, PET. </span></strong><br />
-                                    <strong><span style="color:#000000;">2.)Harvest has got the certifications ISO 9 0 0 1 since 2005, ISO 1 4 0 0 1 since 2008,ISO 2 2 0 0 0 since 2011.</span></strong><br />
-                                    <strong><span style="color:#000000;">3.)Every year, we will send our products to SGS official institution for year-testing, and get SGS testing report.(pass FDA and EU Commission Regulation)</span></strong><br />
-                                    <strong><span style="color:#000000;">4.)Overview:</span></strong><br />
-                                    <br />
-                                    <img src="images/about/20150714095634_93378.jpg" alt="" width="300" height="220" title="" align="" /> 
-                                    <img src="images/about/20150714095650_14383.jpg" alt="" width="300" height="222" title="" align="" />
-                                     <img src="images/about/20150714095713_51278.jpg" alt="" width="300" height="218" title="" align="" /> 
-                                    <img src="images/about/20150714095730_24759.jpg" alt="" width="300" height="223" title="" align="" />
+                                    <iframe width="504" height="510" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://j.map.baidu.com/s4WU3"></iframe>
                                 </p>
                             </div>
                         </div>
                         <!--
                         <script type="text/javascript" src="/templets/default/js/jquery.min.js"></script>
                         -->
-                        <script type="text/javascript" src="/templets/default/js/jquery.nicescroll.js"></script>
+                        <script src="~/js/jquery.nicescroll.js"></script>
                         <script type="text/javascript">
 									$("#sucai").niceScroll({
 										cursorcolor:"#008837",

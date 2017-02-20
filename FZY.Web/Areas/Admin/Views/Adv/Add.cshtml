@@ -27,11 +27,17 @@
                 </div>
             </div>
             <div class="form-group">
-                @Html.Partial("UploadFilePartialView", new UploadFileDto()
+                <div class="label">
+                    <label>首页图片：</label>
+                </div>
+                <div class="field">
+                    @Html.Partial("UploadFilePartialView", new UploadFileDto()
                {
-                   UploadId = "IdFile"
-               })
-            </div>
+                   UploadId = "IdFile",
+                   UploadContentType = "jpeg,jpg,png"
+                    })
+                </div>
+                </div>
             <div class="form-group">
                 <div class="label">
                     <label>描述：</label>

@@ -1,6 +1,10 @@
 ﻿@model Topevery.Web.Models.File.UploadFileDto
 @using Abp.Web.Mvc.Extensions
 
+
+    @Html.IncludeStyle("~/Libs/webuploader-0.1.5/webuploader.css")
+    @Html.IncludeStyle("~/Content/UploadFile.css")
+
 <div class="uploaddiv" id="@Model.UploadId"></div>
 <ul class="uploadImg"></ul>
 <div class="hiddenDiv" style="display: none">
