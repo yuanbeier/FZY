@@ -32,6 +32,7 @@ namespace FZY.WebSite
         public async Task AddHomePicAsync(HomePicInput input)
         {
             var homePic = input.MapTo<HomePic>();
+            homePic.ImageUrl = homePic.ImageUrl.Split(',')[0];
             await _homePicRepository.InsertAsync(homePic);
         }
 

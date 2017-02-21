@@ -50,15 +50,26 @@ var topevery = {
                 var json = JSON.parse(jqXHR.responseText);
                 //使用window.top属性是为了防止重复提交,如有更改.先联系lmy
                 if (json.error.message.indexOf("|") > -1) {
-                    window.top.topeveryMessage.alert("提示", json.error.message.split("|")[1]);
+                    window.top.alert("提示", json.error.message.split("|")[1]);
                 }
                 else if (json.error.message.indexOf("Required permissions") > -1) {
-                    window.top.topeveryMessage.alert("提示", "请配置权限：" + json.error.message.split(":")[1]);
+                    window.top.alert("提示", "请配置权限：" + json.error.message.split(":")[1]);
                 }
                 else {
-                    window.top.topeveryMessage.alert("提示", "操作失败");
+                    window.top.alert("提示", "操作失败");
                 }
             });
+    },
+    serializeObject : function (form) {
+        var o = {};
+        $.each(form.serializeArray(), function (index) {
+            if (o[this['name']]) {
+                o[this['name']] = o[this['name']] + "," + $.trim(this['value']);
+            } else {
+                o[this['name']] =$.trim(this['value']);
+            }
+        });
+        return o;
     },
 
     /**

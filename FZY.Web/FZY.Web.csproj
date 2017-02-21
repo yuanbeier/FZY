@@ -324,6 +324,7 @@
     <Content Include="Abp\Framework\styles\abp.mixings.css" />
     <Content Include="Abp\Framework\styles\abp.mixings.min.css" />
     <Content Include="Abp\Framework\styles\utils\ie10fix.css" />
+    <Content Include="Areas\Admin\Views\Adv\Add.js" />
     <Content Include="Content\admin.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -360,6 +361,9 @@
     <Content Include="Areas\Admin\Views\Adv\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Adv\Add.cshtml" />
     <Content Include="Libs\webuploader-0.1.5\README.md" />
+    <Content Include="Ashx\DownloadFile.ashx" />
+    <Content Include="Ashx\GetFile.ashx" />
+    <Content Include="Ashx\ThumbImage.ashx" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="js\uploader.js" />
     <Content Include="Libs\webuploader-0.1.5\Uploader.swf" />
@@ -520,6 +524,15 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdvController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Ashx\DownloadFile.ashx.cs">
+      <DependentUpon>DownloadFile.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Ashx\GetFile.ashx.cs">
+      <DependentUpon>GetFile.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Ashx\ThumbImage.ashx.cs">
+      <DependentUpon>ThumbImage.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ContractController.cs" />

@@ -115,12 +115,13 @@
             $percent.css("width", percentage * 100 + "%");
         });
         uploader.on("uploadSuccess", function (file, response) { //上传成功事件
-            if (response.Success === true) {
+            console.log(response);
+            if (response.success === true) {
                 uploader.removeFile(file);
                 if (options.callback) {
-                    var url = virtualDirName + 'Ashx/ThumbImage.ashx?FID=' + response.Result + '&W=80&H=80';
+                    var url = virtualDirName + 'Ashx/ThumbImage.ashx?FID=' + response.result + '&W=80&H=80';
                     file.url = url;
-                    file.fileId = response.Result;
+                    file.fileId = response.result;
                     switch (file.ext) {
                         case "doc":
                         case "docx":

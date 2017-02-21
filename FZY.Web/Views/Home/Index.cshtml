@@ -7,24 +7,56 @@
 @section Scripts
 {
     @Html.IncludeScript("~/Views/Home/koala.js")
+    <script src="~/js/base.js"></script>
 
   <script type="text/javascript">
+
+      $(function () {
+          function callback(data) {
+              if (data.result.length > 0) {
+                  var divhtml = "";
+                  var ahtml = "";
+                  for (var i = 0; i < data.result.length; i++) {
+                      divhtml = divhtml + "<div class=\"fcon\" style=\"display: none;\">";
+                      divhtml = divhtml + "<img src=\"" + virtualDirName + 'Ashx/ThumbImage.ashx?FID=' + data.result[0].imageUrl + "\" style=\"opacity: 1; \" >";
+                      divhtml = divhtml + "</div>";
+                      if (i + 1 == data.result.length) {
+                          ahtml = ahtml + "<a href=\"javascript:void(0)\" hidefocus=\"true\" target=\"_self\" class=\"current\"><i>" + i + 1 + "</i></a>";
+                      }
+                      else {
+                          ahtml = ahtml + "<a href=\"javascript:void(0)\" hidefocus=\"true\" target=\"_self\" class=\"\"><i>" + i + 1 + "</i></a>";
+                      }
+                  }
+                  console.log(ahtml);
+                  console.log(divhtml);
+                  $("#D1fBt").html(ahtml);
+                  $("#D1pic1").html(divhtml);
+              }
+          };
+          topevery.ajax({
+              url: 'api/services/app/webSiteAppServer/GetHomePicListAsync',
+              type: 'POST',
+              contentType: "application/json"
+          }, callback, false);
+      });
     Qfast.add('widgets', { path: "@Url.Content("~/Scripts/terminator2.js")", type: "js", requires: ['fx'] });
-							Qfast(false, 'widgets', function () {
-								K.tabs({
-									id: 'fsD1',   //焦点图包裹id
-									conId: "D1pic1",  //** 大图域包裹id
-									tabId:"D1fBt",
-									tabTn:"a",
-									conCn: '.fcon', //** 大图域配置class
-									auto: 1,   //自动播放 1或0
-									effect: 'fade',   //效果配置
-									eType: 'click', //** 鼠标事件
-									pageBt:true,//是否有按钮切换页码
-									bns: ['.prev', '.next'],//** 前后按钮配置class
-									interval: 5000  //** 停顿时间
-								})
-							})
+      Qfast(false, 'widgets', function () {
+          K.tabs({
+              id: 'fsD1',   //焦点图包裹id
+              conId: "D1pic1",  //** 大图域包裹id
+              tabId: "D1fBt",
+              tabTn: "a",
+              conCn: '.fcon', //** 大图域配置class
+              auto: 1,   //自动播放 1或0
+              effect: 'fade',   //效果配置
+              eType: 'click', //** 鼠标事件
+              pageBt: true,//是否有按钮切换页码
+              bns: ['.prev', '.next'],//** 前后按钮配置class
+              interval: 5000  //** 停顿时间
+          })
+      });
+
+
     </script>
 
 }
@@ -36,22 +68,11 @@
 
 <div id="fsD1" class="focus">
     <div id="D1pic1" class="fPic">
-        <div class="fcon" style="display: none;">
-            <img src="~/images/20150714095356_32032.png" style="opacity: 1; ">
-        </div>
-        <div class="fcon" style="display: none;">
-            <img src="~/images/20150626180725_17284.jpg" style="opacity: 1; ">
-        </div>
-        <div class="fcon" style="display: none;">
-            <img src="~/images/20150714093649_95765.jpg" style="opacity: 1; ">
-        </div>
-
+     
     </div>
     <div class="fbg">
         <div class="D1fBt" id="D1fBt">
-            <a href="javascript:void(0)" hidefocus="true" target="_self" class=""><i>1</i></a>
-            <a href="javascript:void(0)" hidefocus="true" target="_self" class=""><i>2</i></a>
-            <a href="javascript:void(0)" hidefocus="true" target="_self" class="current"><i>3</i></a>
+          
         </div>
     </div>
     <span class="prev"></span>

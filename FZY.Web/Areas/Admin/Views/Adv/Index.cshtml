@@ -30,12 +30,12 @@
         function del(id) {
             if (confirm("您确定要删除吗?")) {
                 $.ajax({
-                    url: virtualDirName + "api/services/app/webSiteAppServer/DeleteHomePicAsync",
+                    url: virtualDirName + "api/services/app/webSiteAppServer/DeleteHomePicAsync?id="+ id,
                     type: "Post",
-                    contentType: "application/json",
-                    data: JSON.stringify({ id: id }),
+                    dataType: "json",
                     success: function (data) {
                         alert("删除成功！");
+                        location.href = location.href;
                     }
                 });
             }
@@ -53,9 +53,9 @@
                         var length = data.result.length;
                         for (var i = 0; i < length; i++) {
                             tableHtml +=
-                          '<tr><td>' + (i + 1) + '</td><td><img src="' + data.result[i].imageUrl + '" alt="" width="120" height="50" /></td>' +
+                          '<tr><td>' + (i + 1) + '</td><td><img src="' +GetUrl( data.result[i].imageUrl )+ '" alt="" width="120" height="50" /></td>' +
                             '<td>' + data.result[i].name + '</td><td>' + data.result[i].description + '</td><td>' + data.result[i].sort + '</td><td><div class="button-group">' +
-                            '<a class="button border-red" href="javascript:void(0)" onclick="return del(' + data.result[i] + ')">' +
+                            '<a class="button border-red" href="javascript:void(0)" onclick="return del(' + data.result[i].id + ')">' +
                             '<span class="icon-trash-o"></span> 删除</a></div></td></tr>';
                         }
                         $advTable.html(tableHtml);
@@ -63,6 +63,11 @@
                 }
             })
         });
+
+        function GetUrl(imageUrl){
+            var url = virtualDirName + 'Ashx/ThumbImage.ashx?FID=' + imageUrl + '&W=80&H=80';
+            return url;
+        }
     </script>
 }
 
