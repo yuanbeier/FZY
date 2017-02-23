@@ -6,14 +6,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Abp.Domain.Entities;
 using FZY.FileHandle;
+using System.ComponentModel.DataAnnotations;
 
 namespace FZY.WebSite.Sys
 {
-    /// <summary>
-    /// 文件关系实体
-    /// 刘珠明
-    /// 20160905
-    /// </summary>
+
     public class FileRelation : Entity<int>
     {
         /// <summary>
@@ -29,11 +26,13 @@ namespace FZY.WebSite.Sys
         /// <summary>
         /// 文件路径
         /// </summary>
+        [MaxLength(200)]
         public string FileUrl { get; set; }
 
         /// <summary>
         /// 图片名称
         /// </summary>
+        [MaxLength(200)]
         public string FileName { get; set; }
 
         /// <summary>
@@ -50,10 +49,5 @@ namespace FZY.WebSite.Sys
         /// 文件类型
         /// </summary>
         public FileType? FileType { set; get; }
-
-        /// <summary>
-        /// 环节实例Id
-        /// </summary>
-        public long? ActivityInstanceId { set; get; }
     }
 }

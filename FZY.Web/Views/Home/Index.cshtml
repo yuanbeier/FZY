@@ -18,7 +18,7 @@
                   var ahtml = "";
                   for (var i = 0; i < data.result.length; i++) {
                       divhtml = divhtml + "<div class=\"fcon\" style=\"display: none;\">";
-                      divhtml = divhtml + "<img src=\"" + virtualDirName + 'Ashx/ThumbImage.ashx?FID=' + data.result[0].imageUrl + "\" style=\"opacity: 1; \" >";
+                      divhtml = divhtml + "<img src=\"" + virtualDirName + 'Ashx/ThumbImage.ashx?FID=' + data.result[i].imageUrl + "\" style=\"opacity: 1; \" >";
                       divhtml = divhtml + "</div>";
                       if (i + 1 == data.result.length) {
                           ahtml = ahtml + "<a href=\"javascript:void(0)\" hidefocus=\"true\" target=\"_self\" class=\"current\"><i>" + i + 1 + "</i></a>";

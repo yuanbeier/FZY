@@ -140,6 +140,18 @@
     <Compile Include="Migrations\201702151339118_addFileRelation.Designer.cs">
       <DependentUpon>201702151339118_addFileRelation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702231257505_updateFileRelation.cs" />
+    <Compile Include="Migrations\201702231257505_updateFileRelation.Designer.cs">
+      <DependentUpon>201702231257505_updateFileRelation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702231304299_updateFileRelation1.cs" />
+    <Compile Include="Migrations\201702231304299_updateFileRelation1.Designer.cs">
+      <DependentUpon>201702231304299_updateFileRelation1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702231309290_addProduct.cs" />
+    <Compile Include="Migrations\201702231309290_addProduct.Designer.cs">
+      <DependentUpon>201702231309290_addProduct.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="FZYDataModule.cs" />
@@ -177,6 +189,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201702151339118_addFileRelation.resx">
       <DependentUpon>201702151339118_addFileRelation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702231257505_updateFileRelation.resx">
+      <DependentUpon>201702231257505_updateFileRelation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702231304299_updateFileRelation1.resx">
+      <DependentUpon>201702231304299_updateFileRelation1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702231309290_addProduct.resx">
+      <DependentUpon>201702231309290_addProduct.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

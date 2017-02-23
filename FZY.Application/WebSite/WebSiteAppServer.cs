@@ -13,7 +13,7 @@ namespace FZY.WebSite
     /// <summary>
     /// 网站服务
     /// </summary>
-    [AbpAuthorize]
+ 
     public class WebSiteAppServer:FZYAppServiceBase,IWebSiteAppServer
     {
         private readonly IRepository<HomePic> _homePicRepository;
