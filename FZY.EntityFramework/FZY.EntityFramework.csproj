@@ -152,6 +152,14 @@
     <Compile Include="Migrations\201702231309290_addProduct.Designer.cs">
       <DependentUpon>201702231309290_addProduct.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702261140223_updateFileId.cs" />
+    <Compile Include="Migrations\201702261140223_updateFileId.Designer.cs">
+      <DependentUpon>201702261140223_updateFileId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702261231083_updateProduct.cs" />
+    <Compile Include="Migrations\201702261231083_updateProduct.Designer.cs">
+      <DependentUpon>201702261231083_updateProduct.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="FZYDataModule.cs" />
@@ -198,6 +206,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201702231309290_addProduct.resx">
       <DependentUpon>201702231309290_addProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702261140223_updateFileId.resx">
+      <DependentUpon>201702261140223_updateFileId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702261231083_updateProduct.resx">
+      <DependentUpon>201702261231083_updateProduct.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

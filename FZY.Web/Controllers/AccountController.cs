@@ -66,7 +66,7 @@ namespace FZY.Web.Controllers
         {
             if (string.IsNullOrWhiteSpace(returnUrl))
             {
-                returnUrl = Request.ApplicationPath.Length > 1?Request.ApplicationPath + "/" : Request.ApplicationPath ;
+                returnUrl =( Request.ApplicationPath.Length > 1?Request.ApplicationPath + "/" : Request.ApplicationPath )+ "admin/home/index";
             }
 
             return View(

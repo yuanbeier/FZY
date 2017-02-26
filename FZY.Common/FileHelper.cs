@@ -1,6 +1,6 @@
 ﻿using System.IO;
 
-namespace FZY.FileHandle
+namespace FZY.Common
 {
     public enum FileType
     {

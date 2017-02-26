@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,6 +8,8 @@ using Abp.AutoMapper;
 using Abp.Domain.Repositories;
 using FZY.WebSite.Dto;
 using Abp.Authorization;
+using Abp.Linq.Extensions;
+using FZY.Page;
 
 namespace FZY.WebSite
 {
@@ -18,9 +21,12 @@ namespace FZY.WebSite
     {
         private readonly IRepository<HomePic> _homePicRepository;
 
-        public WebSiteAppServer(IRepository<HomePic> homePicRepository)
+        private readonly IRepository<Product> _productRepository;
+
+        public WebSiteAppServer(IRepository<HomePic> homePicRepository, IRepository<Product> productRepository)
         {
             _homePicRepository = homePicRepository;
+            _productRepository = productRepository;
         }
 
 
@@ -37,6 +43,16 @@ namespace FZY.WebSite
         }
 
         /// <summary>
+        /// 获取首页图片列表
+        /// </summary>
+        /// <returns></returns>
+        public async Task<List<HomePicOutput>> GetHomePicListAsync()
+        {
+            var list = await _homePicRepository.GetAllListAsync();
+            return list.MapTo<List<HomePicOutput>>();
+        }
+
+        /// <summary>
         /// 删除首页图片
         /// </summary>
         /// <param name="id"></param>
@@ -47,13 +63,54 @@ namespace FZY.WebSite
         }
 
         /// <summary>
-        /// 获取首页图片列表
+        /// 添加产品
         /// </summary>
+        /// <param name="input"></param>
         /// <returns></returns>
-        public async Task<List<HomePicOutput>> GetHomePicListAsync()
+        public async Task AddProductAsync(ProducInput input)
         {
-            var list = await _homePicRepository.GetAllListAsync();
-            return list.MapTo<List<HomePicOutput>>();
+            var product = input.MapTo<Product>();
+            product = _productRepository.Insert(product);
+            CurrentUnitOfWork.SaveChanges();
+            await AddFileRelationAsync(input.ProductImage, product.Id, ModuleType.ProductMan);
+            await AddFileRelationAsync(input.StypeImage, product.Id, ModuleType.ProductDetail);
+
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        public async Task<PagedResultOutputDto<ProducOutput>> GetProductListAsync(GetProductListInput input)
+        {
+            var query = _productRepository.GetAll().
+               WhereIf(!string.IsNullOrEmpty(input.Name), x => x.Name == input.Name);
+            var count = query.Count();
+            var result = await query.OrderByDescending(x => x.CreationTime).Skip(input.SkipCount).Take(input.PageCount).ToListAsync();
+            var reusltOut = result.MapTo<List<ProducOutput>>();
+            foreach (var producOutput in reusltOut)
+            {
+                var firstOrDefault
+                    = FileRelationRepository
+                    .GetAll().FirstOrDefault
+                    (x => x.KeyId == producOutput.Id
+                          && x.ModuleId == ModuleType.ProductMan);
+                if (firstOrDefault != null)
+                    producOutput.FileId = firstOrDefault
+                        .FileId;
+            }
+            return new PagedResultOutputDto<ProducOutput>(count, reusltOut);
+        }
+
+        /// <summary>
+        /// 删除产品
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public async Task DeleteProductAsync(int id)
+        {
+            await _productRepository.DeleteAsync(id);
         }
     }
 }

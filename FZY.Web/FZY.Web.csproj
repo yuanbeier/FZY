@@ -329,6 +329,7 @@
     <Content Include="Content\admin.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\pagination.css" />
     <Content Include="Content\pintuer.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\UploadFile.css" />
@@ -357,6 +358,7 @@
     <Content Include="images\y.jpg" />
     <Content Include="js\base.js" />
     <Content Include="js\jquery.nicescroll.js" />
+    <Content Include="js\jquery.pagination.js" />
     <Content Include="js\pintuer.js" />
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Adv\Index.cshtml" />
@@ -366,6 +368,7 @@
     <Content Include="Ashx\GetFile.ashx" />
     <Content Include="Ashx\ThumbImage.ashx" />
     <Content Include="Areas\Admin\Views\Product\Add.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="js\uploader.js" />
     <Content Include="Libs\webuploader-0.1.5\Uploader.swf" />

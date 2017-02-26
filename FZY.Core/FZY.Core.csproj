@@ -94,7 +94,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FileHelper.cs" />
     <Compile Include="FZYConsts.cs" />
     <Compile Include="FZYCoreModule.cs" />
     <Compile Include="Authorization\FZYAuthorizationProvider.cs" />
@@ -147,6 +146,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Localization\Source\FZY-nl-NL.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FZY.Common\FZY.Common.csproj">
+      <Project>{c62ebd3d-8142-4911-82cb-00adc30a6ed8}</Project>
+      <Name>FZY.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

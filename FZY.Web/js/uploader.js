@@ -115,7 +115,6 @@
             $percent.css("width", percentage * 100 + "%");
         });
         uploader.on("uploadSuccess", function (file, response) { //上传成功事件
-            console.log(response);
             if (response.success === true) {
                 uploader.removeFile(file);
                 if (options.callback) {

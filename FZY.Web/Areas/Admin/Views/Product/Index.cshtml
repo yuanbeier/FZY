@@ -1,0 +1,309 @@
+﻿<form method="post" action="" id="listform">
+    <div class="panel admin-panel">
+        <div class="panel-head"><strong class="icon-reorder"> 内容列表</strong> <a href="" style="float:right; display:none;">添加字段</a></div>
+        <div class="padding border-bottom">
+            <ul class="search" style="padding-left:10px;">
+                <li> <a class="button border-main icon-plus-square-o" href="@Url.Action("add")"> 添加内容</a> </li>
+                <li>搜索：</li>
+                <li>
+                    <input type="text" placeholder="请输入搜索关键字" id="keywords" class="input" style="width:250px; line-height:17px;display:inline-block" />
+                    <a href="javascript:void(0)" class="button border-main icon-search" onclick="changesearch()"> 搜索</a>
+                </li>
+            </ul>
+        </div>
+        <table class="table table-hover text-center">
+            <thead>
+            <tr>
+                <th width="100" style="text-align: left; padding-left: 20px;">ID</th>
+                <th width="10%">排序</th>
+                <th>图片</th>
+                <th>名称</th><th>货号</th><th>尺寸</th>
+                <th width="10%">更新时间</th>
+                <th width="310">操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            
+            </tbody>
+        
+
+            <tfoot>
+                <tr>
+                    <td colspan="8">
+                        <div id="Pagination" class="pagination"></div>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</form>
+@section styles
+{
+   <link href="~/Content/pagination.css" rel="stylesheet" />
+}
+@section scripts{
+
+    <script src="~/js/jquery.pagination.js"></script>
+    <script type="text/javascript">
+        
+        //分页查询开始
+        $(document).ready(function () {
+            getDataList(0, null);
+        });
+
+        var pageCount = 10;
+        var page ;
+        var initFlag = true;
+        var opt;
+        function getDataList(currPage, jg) {
+
+            $.ajax({
+                url: virtualDirName + "api/services/app/webSiteAppServer/GetProductListAsync",
+                type: "post",
+                data: JSON.stringify({ name: $("#keywords").val(), pageIndex: currPage + 1, pageCount: pageCount }),
+                contentType: "application/json",
+                success: function (response) {
+                    if (response.success) {
+                        $(".text-center tbody").html("");
+                        if (response.result.rows != null && response.result.total != undefined && response.result.total > 0) {
+                            if (initFlag) {
+                                opt = {
+                                    items_per_page: pageCount,
+                                    num_edge_entries: 1,
+                                    num_display_entries: 8,
+                                    callback: getDataList //回调函数
+                                };
+                                page =  $("#Pagination").pagination(
+                                    response.result.total, opt
+                                   );
+                                initFlag = false;
+                            }
+                            loadDataList(response.result.rows);
+                        } else {
+                            
+                        }
+                    } else {
+                        //暂无数据
+                    }
+                }
+            });
+        }
+
+        function GetUrl(imageUrl) {
+            var url = virtualDirName + 'Ashx/ThumbImage.ashx?FID=' + imageUrl + '&W=80&H=80';
+            return url;
+        }
+
+        function loadDataList(listdata) {
+            //表头
+            for (var i = 0; i < listdata.length; i++) {
+                var n = listdata[i];
+                //表格
+                var html = ' <tr>' +
+                    ' <td style="text-align: left; padding-left: 20px;">' +
+                    ' <input type="checkbox" name="id[]" value=""/>' +
+                    (i +
+                    1 )+
+                    ' </td><td>' +
+                    n.sort +
+                    '</td>' +
+                    ' <td width="10%"><img src="' +
+                    GetUrl(n.fileId) +
+                    '" alt="" width="70" height="50"/></td>' +
+                    ' <td>' +
+                    n.name +
+                    '</td>' +
+                    ' <td>' +
+                    n.style +
+                    '</td>' +
+                    ' <td>' +
+                    n.size +
+                    '</td>' +
+                    '<td>' +
+                    n.creationTime +
+                    '</td><td>' +
+                    ' <div class="button-group"> <a class="button border-main" href="add.html"><span class="icon-edit"></span> 修改</a> <a class="button border-red" href="javascript:void(0)" onclick="return del('+n.id+')"><span class="icon-trash-o"></span> 删除</a>' +
+                    '</div></td></tr>';
+                $(".text-center tbody").append(html);
+            }
+        }
+        //分页查询结束
+//搜索
+        function changesearch() {
+            getDataList(0, null);
+        }
+
+//单个删除
+        function del(id){
+            if(confirm("您确定要删除吗?")){
+                $.ajax({
+                    url: virtualDirName + "api/services/app/webSiteAppServer/DeleteProductAsync?id=" + id,
+                    type: "Post",
+                    success: function (data) {
+                        alert("删除成功！");
+                        location.href = location.href;
+                    }
+                });
+            }
+        }
+
+//全选
+        $("#checkall").click(function(){
+            $("input[name='id[]']").each(function(){
+                if (this.checked) {
+                    this.checked = false;
+                }
+                else {
+                    this.checked = true;
+                }
+            });
+        });
+
+//批量删除
+        function DelSelect(){
+            var Checkbox=false;
+            $("input[name='id[]']").each(function(){
+                if (this.checked==true) {
+                    Checkbox=true;
+                }
+            });
+            if (Checkbox){
+                var t=confirm("您确认要删除选中的内容吗？");
+                if (t==false) return false;
+                $("#listform").submit();
+            }
+            else{
+                alert("请选择您要删除的内容!");
+                return false;
+            }
+        }
+
+//批量排序
+        function sorts(){
+            var Checkbox=false;
+            $("input[name='id[]']").each(function(){
+                if (this.checked==true) {
+                    Checkbox=true;
+                }
+            });
+            if (Checkbox){
+
+                $("#listform").submit();
+            }
+            else{
+                alert("请选择要操作的内容!");
+                return false;
+            }
+        }
+
+
+//批量首页显示
+        function changeishome(o){
+            var Checkbox=false;
+            $("input[name='id[]']").each(function(){
+                if (this.checked==true) {
+                    Checkbox=true;
+                }
+            });
+            if (Checkbox){
+
+                $("#listform").submit();
+            }
+            else{
+                alert("请选择要操作的内容!");
+
+                return false;
+            }
+        }
+
+//批量推荐
+        function changeisvouch(o){
+            var Checkbox=false;
+            $("input[name='id[]']").each(function(){
+                if (this.checked==true) {
+                    Checkbox=true;
+                }
+            });
+            if (Checkbox){
+
+
+                $("#listform").submit();
+            }
+            else{
+                alert("请选择要操作的内容!");
+
+                return false;
+            }
+        }
+
+//批量置顶
+        function changeistop(o){
+            var Checkbox=false;
+            $("input[name='id[]']").each(function(){
+                if (this.checked==true) {
+                    Checkbox=true;
+                }
+            });
+            if (Checkbox){
+
+                $("#listform").submit();
+            }
+            else{
+                alert("请选择要操作的内容!");
+
+                return false;
+            }
+        }
+
+
+//批量移动
+        function changecate(o){
+            var Checkbox=false;
+            $("input[name='id[]']").each(function(){
+                if (this.checked==true) {
+                    Checkbox=true;
+                }
+            });
+            if (Checkbox){
+
+                $("#listform").submit();
+            }
+            else{
+                alert("请选择要操作的内容!");
+
+                return false;
+            }
+        }
+
+//批量复制
+        function changecopy(o){
+            var Checkbox=false;
+            $("input[name='id[]']").each(function(){
+                if (this.checked==true) {
+                    Checkbox=true;
+                }
+            });
+            if (Checkbox){
+                var i = 0;
+                $("input[name='id[]']").each(function(){
+                    if (this.checked==true) {
+                        i++;
+                    }
+                });
+                if(i>1){
+                    alert("只能选择一条信息!");
+                    $(o).find("option:first").prop("selected","selected");
+                }else{
+
+                    $("#listform").submit();
+                }
+            }
+            else{
+                alert("请选择要复制的内容!");
+                $(o).find("option:first").prop("selected","selected");
+                return false;
+            }
+        }
+
+    </script>
+}

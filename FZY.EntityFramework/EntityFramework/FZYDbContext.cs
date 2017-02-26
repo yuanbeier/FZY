@@ -4,8 +4,8 @@ using FZY.Authorization.Roles;
 using FZY.MultiTenancy;
 using FZY.Users;
 using System.Data.Entity;
+using FZY.Sys;
 using FZY.WebSite;
-using FZY.WebSite.Sys;
 
 namespace FZY.EntityFramework
 {

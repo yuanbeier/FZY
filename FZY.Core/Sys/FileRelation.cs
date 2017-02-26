@@ -1,14 +1,9 @@
-﻿using Abp.Domain.Entities.Auditing;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Abp.Domain.Entities;
-using FZY.FileHandle;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
+using Abp.Domain.Entities;
+using FZY.Common;
 
-namespace FZY.WebSite.Sys
+namespace FZY.Sys
 {
 
     public class FileRelation : Entity<int>
@@ -24,10 +19,9 @@ namespace FZY.WebSite.Sys
         public int KeyId { get; set; }
 
         /// <summary>
-        /// 文件路径
+        /// 文件Id
         /// </summary>
-        [MaxLength(200)]
-        public string FileUrl { get; set; }
+        public Guid FileId { get; set; }
 
         /// <summary>
         /// 图片名称

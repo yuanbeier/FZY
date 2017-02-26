@@ -1,17 +1,14 @@
-﻿using Abp.Domain.Entities.Auditing;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
+using Abp.AutoMapper;
+using Abp.Domain.Entities.Auditing;
 
-namespace FZY.WebSite
+namespace FZY.WebSite.Dto
 {
     /// <summary>
     /// 产品类别
     /// </summary>
-    public class Product: FullAuditedEntity
+    [AutoMap(typeof(Product))]
+    public class ProducInput
     {
         /// <summary>
         /// 产品名称
@@ -41,6 +38,18 @@ namespace FZY.WebSite
         /// </summary>
         [MaxLength(200)]
         public string Package { set; get;}
+
+        /// <summary>
+        /// 产品图片
+        /// </summary>
+        public string ProductImage { set; get; }
+
+        /// <summary>
+        /// 样式图片
+        /// </summary>
+        public string StypeImage { set; get; }
+
+
 
         /// <summary>
         /// 排序
