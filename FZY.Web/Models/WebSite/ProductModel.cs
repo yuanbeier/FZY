@@ -1,15 +1,21 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using Abp.AutoMapper;
-using Abp.Domain.Entities.Auditing;
+using FZY.WebSite;
+using FZY.WebSite.Dto;
 
-namespace FZY.WebSite.Dto
+namespace FZY.Web.Models.WebSite
 {
     /// <summary>
     /// 产品类别
     /// </summary>
-    [AutoMap(typeof(Product))]
-    public class ProducInput
+    [AutoMap(typeof(ProducOutput))]
+    public class ProductModel
     {
+        /// <summary>
+        /// Id
+        /// </summary>
+        public int Id { set; get; }
         /// <summary>
         /// 产品名称
         /// </summary>
@@ -40,20 +46,16 @@ namespace FZY.WebSite.Dto
         public string Package { set; get;}
 
         /// <summary>
-        /// 产品图片
+        /// 创建时间
         /// </summary>
-        public string ProductImage { set; get; }
-
-        /// <summary>
-        /// 样式图片
-        /// </summary>
-        public string StyleImage { set; get; }
-
+        public string CreationTime { set; get; }
 
 
         /// <summary>
         /// 排序
         /// </summary>
         public int Sort { set; get; }
+
+  
     }
 }

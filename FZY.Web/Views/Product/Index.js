@@ -1,0 +1,71 @@
+﻿(function() {
+    $(function () {
+        $.ajax({
+            url: virtualDirName + "api/services/app/webSiteAppServer/GetProductListAsync",
+            type: "Post",
+            data: JSON.stringify({ pageIndex: 1, pageCount: 100 }),
+            contentType: "application/json",
+            success: function(data) {
+                if (data.success) {
+                    var $ul = $(".about_title ul");
+                    var liHtml = "";
+                    var length = data.result.rows.length;
+                    for (var i = 0; i < length; i++) {
+                        liHtml +=
+                            '<li><a href="Index?id=' +
+                            data.result.rows[i].id + '">>> <span>' +
+                            data.result.rows[i].name +
+                            '</span></a></li>';
+                      
+                    }
+                    $ul.html(liHtml);
+                }
+            }
+        });
+
+        topevery.ajax({
+            type: "POST",
+            url: "api/services/app/FileRelation/GetFileRDtoList",
+            contentType: "application/json",
+            data: JSON.stringify({ keyId: productId, ModuleType: 1})
+        }, function (row) {
+            if (row.success) {
+                var data = row.result;
+                
+                for (var i = 0; i < data.length; i++) {
+                    $("#manPic").attr("src", data[i].imageShowUrl);
+                }
+        
+            }
+        });
+
+        topevery.ajax({
+            type: "POST",
+            url: "api/services/app/FileRelation/GetFileRDtoList",
+            contentType: "application/json",
+            data: JSON.stringify({ keyId: productId, ModuleType: 2 })
+        }, function (row) {
+            if (row.success) {
+                var data = row.result;
+                var hdFileData = "";
+                for (var i = 0; i < data.length; i++) {
+                    hdFileData += '<li><img src="' +
+                        data[i].imageShowUrl +
+                        '" width="100" Height="100" alt="Nozomi">' +
+                        '<br>' + data[i].fileNameWithoutExten + '</li>';
+
+                }
+                //回发时还原hiddenfiled的保持数据
+                $(".prodcuticon").html(hdFileData);
+            }
+        });
+
+        function GetUrl(imageUrl) {
+            var url = virtualDirName + 'Ashx/ThumbImage.ashx?FID=' + imageUrl + '&W=200&H=180';
+            return url;
+        }
+    });
+
+
+})();
+

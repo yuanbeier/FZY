@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using Abp.AutoMapper;
@@ -73,7 +74,7 @@ namespace FZY.WebSite
             product = _productRepository.Insert(product);
             CurrentUnitOfWork.SaveChanges();
             await AddFileRelationAsync(input.ProductImage, product.Id, ModuleType.ProductMan);
-            await AddFileRelationAsync(input.StypeImage, product.Id, ModuleType.ProductDetail);
+            await AddFileRelationAsync(input.StyleImage, product.Id, ModuleType.ProductDetail);
 
         }
 
@@ -101,6 +102,16 @@ namespace FZY.WebSite
                         .FileId;
             }
             return new PagedResultOutputDto<ProducOutput>(count, reusltOut);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public async Task<ProducOutput> GetProductByIdAsync(int id)
+        {
+            return (await _productRepository.GetAsync(id)).MapTo<ProducOutput>();
         }
 
         /// <summary>

@@ -1,0 +1,113 @@
+﻿@using FZY
+@using FZY.Web.Models.File
+@model FZY.Web.Models.WebSite.ProductModel
+@{
+    ViewBag.Title = "Edit";
+}
+
+@section scripts
+{
+    <script src="~/js/base.js"></script>
+    <script src="~/Areas/Admin/Views/Product/Add.js"></script>
+}
+<div class="panel admin-panel">
+    <div class="panel-head" id="add"><strong><span class="icon-pencil-square-o"></span>增加内容</strong></div>
+    <div class="body-content">
+        <form method="post" class="form-x">
+            <div class="form-group">
+                <div class="label">
+                    <label>标题：</label>
+                </div>
+                <div class="field">
+                    <input type="text" class="input w50" value="@Model.Name" name="name" data-validate="required:请输入标题" />
+                    <div class="tips"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="label">
+                    <label>产品图片：</label>
+                </div>
+                <div class="field">
+                    @Html.Partial("UploadFilePartialView", new UploadFileDto()
+                    {
+                        UploadId = "IdFile",
+                        UploadContentType = "jpeg,jpg,png",
+                        KeyId = @Model.Id,
+                        ModuleId = ModuleType.ProductMan
+                    })
+                </div>
+
+            </div>
+            <div class="form-group">
+                <div class="label">
+                    <label>样式图片：</label>
+                </div>
+                <div class="field">
+                    @Html.Partial("UploadFilePartialView", new UploadFileDto()
+               {
+                   UploadId = "IdFile2",
+                   UploadContentType = "jpeg,jpg,png",
+                   KeyId = @Model.Id,
+                   ModuleId = ModuleType.ProductDetail
+               })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="label">
+                    <label>描述：</label>
+                </div>
+                <div class="field">
+                    <textarea class="input" name="description" style=" height:90px;">@Model.Description</textarea>
+                    <div class="tips"></div>
+                </div>
+            </div>
+
+
+            <div class="clear"></div>
+            <div class="form-group">
+                <div class="label">
+                    <label>货号：</label>
+                </div>
+                <div class="field">
+                    <input type="text" class="input" name="style" value="@Model.Style" />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="label">
+                    <label>尺寸：</label>
+                </div>
+                <div class="field">
+                    <input type="text" class="input" name="size" value="@Model.Size" />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="label">
+                    <label>包装：</label>
+                </div>
+                <div class="field">
+                    <textarea type="text" class="input" name="package" style="height:80px;">@Model.Package</textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="label">
+                    <label>排序：</label>
+                </div>
+                <div class="field">
+                    <input type="text" class="input w50" name="sort" value="@Model.Sort" data-validate="number:排序必须为数字" />
+                    <div class="tips"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="label">
+                    <label></label>
+                </div>
+                <div class="field">
+                    <button class="button bg-main icon-check-square-o" type="submit"> 提交</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+

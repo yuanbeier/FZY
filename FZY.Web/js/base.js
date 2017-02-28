@@ -93,7 +93,6 @@ var topevery = {
                 var hdFileData = "";
                 for (var i = 0; i < data.length; i++) {
                     var li = target.next().next().find("ul").clone().html();
-                    console.log(li);
                     li = li.replace("{imgUrl}", data[i].imageShowUrl).replace("{imgName}", data[i].fileName).replace("{imgName}", data[i].fileName)
                     .replace("{fileId}", data[i].fileId);
                     target.next().append(li);

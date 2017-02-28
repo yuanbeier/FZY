@@ -1,6 +1,4 @@
-﻿using FZY;
-
-namespace Topevery.Web.Models.File
+﻿namespace FZY.Web.Models.File
 {
     /// <summary>
     /// 文件上传Dto

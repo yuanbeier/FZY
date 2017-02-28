@@ -1,0 +1,119 @@
+﻿@using System.Web.Optimization
+@using FZY
+@using FZY.Web.Models.File
+@model FZY.Web.Models.WebSite.ProductModel
+@{
+    Layout = null;
+}
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=7" />
+    <title>寿司盒子</title>
+    <meta name="keywords" content="寿司盒子" />
+    @Styles.Render("~/Bundles/vendor/css")
+        @Scripts.Render("~/Bundles/vendor/js/top")
+        <link href="~/Views/Product/Index.css" rel="stylesheet" />
+    <script type="text/javascript">
+        /* 虚拟目录名称 */
+        var virtualDirName = '@ApplicationPath';
+        var productId = '@ViewBag.ProductId';
+    </script>
+</head>
+<body>
+
+
+    <div id="all">
+        <div class="top">
+            <div class="top_middle">
+                <div class="search">
+                  
+                </div>
+
+                <div class="lang">
+                
+                </div>
+            </div>
+        </div>
+
+        <div class="conts">
+            <div class="aa">
+                <img src="~/images/20150605100403_67065.jpg" style="width:100%;height:100%;position:absolute;">
+            </div>
+            
+            @Html.Partial("_TopBar")
+
+            <!--[切换图]-->
+
+            <div class="banner">
+         
+            </div>
+
+            <!--[切换图]-->
+            <!--[内页各部分]-->
+
+        
+            <div class="neiye">
+                <div class="neiye_middle">
+                    <div class="about_left">
+                        <div class="about_title">
+                            <p style="position:relative;
+							top:10px;">PRODUCTS</p>
+                            <ul>
+
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="about_right">
+                        <div class="about_right_title">
+                            <p>Position：Home >@Model.Name</p>
+                        </div>
+                        <div class="contents">
+                            <p style=" text-align:center; font-weight:bold;margin-bottom:10px;">@Model.Name</p>
+                            <p style="text-align:center;"><img id="manPic" src="" /></p>
+                            <p>@Model.Description</p>
+                            <table bgcolor="#CCCCCC" cellspacing=1 cellpadding=5 border=0>
+                                <tr>
+                                    <td class="tabletitle">Size (mm)</td>
+                                    <td class="tabletext">@Model.Size</td>
+                                </tr>
+                                <tr>
+                                    <td class="tabletitle">Style</td>
+                                    <td class="tabletext">@Model.Style</td>
+                                </tr>
+                                <tr>
+                                    <td class="tabletitle">Package</td>
+                                    <td class="tabletext">@Model.Package</td>
+                                </tr>
+                            </table>
+                            
+                            <article>
+                                <h3>Pattern and Base Colors</h3>
+                                <section>
+                                    @*<h4><a href="../../manufacturing/material.html#lps">LPS</a></h4>*@
+                                    <ul class="prodcuticon">
+                                      
+                                    </ul>
+                                </section>
+                            </article>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!--[内页各部分]-->
+
+
+            <div class="clear"></div>
+        </div>
+
+        @Html.Partial("_Foot")
+
+        
+    </div>
+    <script src="~/js/base.js"></script>
+    <script src="~/Views/Product/Index.js"></script>
+</body>
+</html>

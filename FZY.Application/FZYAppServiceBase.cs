@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using System.Web;
 using Abp.Application.Services;
 using Abp.Domain.Repositories;
 using Abp.IdentityFramework;
@@ -83,5 +84,14 @@ namespace FZY
         }
 
         #endregion
+
+
+        /// <summary>
+        /// 应用程序根目录
+        /// </summary>
+        public string ApplicationRoot
+        {
+            get { return HttpContext.Current.Request.ApplicationPath; }
+        }
     }
 }

@@ -49,6 +49,12 @@ namespace FZY.WebSite
         /// <returns></returns>
         Task<PagedResultOutputDto<ProducOutput>> GetProductListAsync(GetProductListInput input);
 
+        /// <summary>
+        /// 获取产品
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        Task<ProducOutput> GetProductByIdAsync(int id);
 
         /// <summary>
         /// 删除产品

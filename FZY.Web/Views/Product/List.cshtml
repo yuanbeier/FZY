@@ -1,0 +1,105 @@
+﻿@{
+    Layout = null;
+}
+@using System.Web.Optimization
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=7" />
+    <title>寿司盒子</title>
+    <meta name="keywords" content="寿司盒子" />
+    @Styles.Render("~/Bundles/vendor/css")
+    @Scripts.Render("~/Bundles/vendor/js/top")
+    <script type="text/javascript">
+        /* 虚拟目录名称 */
+        var  virtualDirName = '@ApplicationPath';
+    </script>
+</head>
+<body>
+    <div id="all">
+        <div class="top">
+            <div class="top_middle">
+                <div class="search">
+                 
+                </div>
+
+                <div class="lang">
+                 
+                </div>
+            </div>
+        </div>
+
+        <div class="conts">
+            <div class="aa">
+                <img src="~/images/Product/20150610140949_40690.jpg" style="width:100%;height:100%;position:absolute;">
+            </div>
+            @Html.Partial("_TopBar")
+
+            <!--[切换图]-->
+
+            <div class="banner">
+    
+            </div>
+            <script type="text/javascript">
+
+								function DrawImg1(obj,xyx,yxy)
+							{
+								$(obj).css({'opacity':'0'});
+							　　var imgWidth=$(obj).width();
+							　　var imgHeight=$(obj).height();
+								var boxWidth = xyx;
+								var boxHeight = yxy;
+
+							　　　 //比较imgBox的长宽比与img的长宽比大小
+							　　if((boxWidth/boxHeight)>=(imgWidth/imgHeight))
+							　　{
+							　　　　//重新设置img的width和height
+							　　　　$(obj).width((boxHeight*imgWidth)/imgHeight);
+							　　　　$(obj).height(boxHeight);
+							　　}else{
+							　　　　　　　 //重新设置img的width和height
+							　　　　　　　 $(obj).width(boxWidth);
+							　　　　　　　 $(obj).height((boxWidth*imgHeight)/imgWidth);
+							　　　　　　　 //让图片居中显示
+							　　　　　　　 var margin=(boxHeight-$(obj).height())/2;
+							　　　　　　　 $(obj).css("margin-top",margin);
+							　　　 }
+								$(obj).animate({
+									opacity:1
+								});
+
+							}
+            </script>
+
+            <div class="neiye">
+                <div class="neiye_middle">
+                    <div class="about_left">
+                        <div class="about_title">
+                            <p style="position:relative;
+							top:10px;">PRODUCTS</p>
+                            <ul>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="about_right">
+                        <div class="about_right_title">
+                            <p>Position：Home >PRODUCTS </p>
+                        </div>
+                        <div class="contents">
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+            <div class="clear"></div>
+            <div class="clear"></div>
+        </div>
+        @Html.Partial("_Foot")
+    </div>
+    <script src="~/Views/Product/List.js"></script>
+</body>
+</html>
