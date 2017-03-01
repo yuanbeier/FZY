@@ -1,7 +1,7 @@
 
 /*Ωπµ„Õº*/
 .focus{ position:relative; width:1030px; height:600px;margin:0 auto;}  
-.focus img{ width:1030px; height:330px;} 
+.focus img{ width:1030px; height:600px;} 
 .focus .shadow .title{width: 260px; height: 65px;padding-left: 30px;padding-top: 20px;}
 .focus .shadow .title a{ text-decoration:none; color:#fff; font-size:14px; font-weight:bolder; overflow:hidden; }
 .focus .btn{ position:absolute; bottom:34px; left:510px; overflow:hidden; zoom:1;} 

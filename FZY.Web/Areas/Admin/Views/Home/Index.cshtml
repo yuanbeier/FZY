@@ -22,7 +22,7 @@
         <div class="logo margin-big-left fadein-top">
             <h1><img src="@Url.Content("~/images/y.jpg")" class="radius-circle rotate-hover" height="50" alt="" />后台管理中心</h1>
         </div>
-        <div class="head-l"><a class="button button-little bg-green" href="~/Home/Index" ><span class="icon-home"></span> 前台首页</a> &nbsp;&nbsp;<a href="##" class="button button-little bg-blue"><span class="icon-wrench"></span> 清除缓存</a> &nbsp;&nbsp;<a class="button button-little bg-red" href="~/account/logout"><span class="icon-power-off"></span> 退出登录</a> </div>
+        <div class="head-l"><a class="button button-little bg-green" href="~/Home/Index" ><span class="icon-home"></span> 前台首页</a>  &nbsp;&nbsp;<a class="button button-little bg-red" href="~/account/logout"><span class="icon-power-off"></span> 退出登录</a> </div>
     </div>
     <div class="leftnav">
         <div class="leftnav-title"><strong><span class="icon-list"></span>菜单列表</strong></div>
@@ -31,7 +31,7 @@
             <li><a href="~/admin/adv/index" target="right"><span class="icon-caret-right"></span>首页轮播</a></li>
         </ul>
         <h2><span class="icon-pencil-square-o"></span>产品管理</h2>
-        <ul>
+        <ul style="display:block">
             <li><a href="~/admin/product/index" target="right"><span class="icon-caret-right"></span>产品列表</a></li>
         </ul>
     </div>
@@ -53,7 +53,6 @@ $(function(){
         <li><a href="##" id="a_leader_txt">网站信息</a></li>
         <li>
             <b>当前语言：</b><span style="color:red;">中文</php></span>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;切换语言：<a href="##">中文</a> &nbsp;&nbsp;<a href="##">英文</a>
         </li>
     </ul>
     <div class="admin">
