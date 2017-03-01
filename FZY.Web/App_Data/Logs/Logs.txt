@@ -4326,3 +4326,7 @@ Abp.Authorization.AbpAuthorizationException: 当前用户没有登录到系统！
    在 Nito.AsyncEx.AsyncContext.Run(Func`1 action)
    在 Abp.Authorization.AuthorizationHelperExtensions.Authorize(IAuthorizationHelper authorizationHelper, MethodInfo methodInfo) 位置 D:\Halil\Github\aspnetboilerplate\src\Abp\Authorization\AuthorizationHelperExtensions.cs:行号 28
    在 Abp.Web.Mvc.Authorization.AbpMvcAuthorizeFilter.OnAuthorization(AuthorizationContext filterContext) 位置 D:\Halil\Github\aspnetboilerplate\src\Abp.Web.Mvc\Web\Mvc\Authorization\AbpMvcAuthorizeFilter.cs:行号 48
+DEBUG 2017-03-01 22:45:14,471 [74   ] Abp.Modules.AbpModuleManager             - Shutting down has been started
+DEBUG 2017-03-01 22:45:14,472 [74   ] Abp.BackgroundJobs.BackgroundJobManager  - Stop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-03-01 22:45:14,473 [74   ] Abp.BackgroundJobs.BackgroundJobManager  - WaitToStop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-03-01 22:45:14,473 [74   ] Abp.Modules.AbpModuleManager             - Shutting down completed.
