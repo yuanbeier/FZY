@@ -372,6 +372,7 @@
     <Content Include="Areas\Admin\Views\Product\Add.cshtml" />
     <Content Include="Areas\Admin\Views\Product\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Product\Edit.cshtml" />
+    <None Include="Properties\PublishProfiles\FZY.Config.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="js\uploader.js" />
     <Content Include="Libs\webuploader-0.1.5\Uploader.swf" />
