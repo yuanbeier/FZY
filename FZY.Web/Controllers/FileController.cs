@@ -57,6 +57,13 @@ namespace FZY.Web.Controllers
                             {
                                 StaticFunction.StreamSourceStreamToTargetStream(inStream, fmpStream);
                             }
+
+                            //OpenFileItemData context = new OpenFileItemData();
+                            //context.FileID = fileId;
+                            //context.UpdateMode = UpdateMode.None;
+                            //context.FileAccess = Topevery.FMP.ObjectModel.FileAccess.ReadWrite;
+                            //context.FileMode = Topevery.FMP.ObjectModel.FileMode.Create;
+                            //context.ClientFileName = fileName;
                         }
                     }
                     catch (Exception ex)

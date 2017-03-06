@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F0128200-E367-4F76-B194-8D9E064A15CF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Topevery.FMP.ObjectModel</RootNamespace>
+    <AssemblyName>Topevery.FMP.ObjectModel</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <SignAssembly>false</SignAssembly>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+    <PublishUrl>http://localhost/Topevery.FMP.ObjectModel/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;TEST</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;WCF</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\log4net.2.0.6\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Topevery.Framework.Data">
+      <HintPath>..\DLL\Topevery.Framework.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Topevery.Framework.Ioc">
+      <HintPath>..\DLL\Topevery.Framework.Ioc.dll</HintPath>
+    </Reference>
+    <Reference Include="Topevery.Framework.ServiceModel">
+      <HintPath>..\Dll\Topevery.Framework.ServiceModel.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Configuration\FileStorageElement.cs" />
+    <Compile Include="Entities\Collections\BaseGuidOwnerCollection.cs" />
+    <Compile Include="Entities\BaseClasses\BaseSetReadOnly.cs" />
+    <Compile Include="Entities\Collections\GuidList.cs" />
+    <Compile Include="Entities\Collections\ListBaseWithEvent.cs" />
+    <Compile Include="Entities\ConfigData\CompressionData.cs" />
+    <Compile Include="Entities\ConfigData\ConfigSettingData.cs" />
+    <Compile Include="Entities\ConfigData\FileStorageData.cs" />
+    <Compile Include="Entities\Enums\CompressionType.cs" />
+    <Compile Include="Entities\Enums\DbRecordStatus.cs" />
+    <Compile Include="Entities\Enums\EncryptionType.cs" />
+    <Compile Include="Entities\Enums\EnumHelper.cs" />
+    <Compile Include="Entities\Enums\LogicFileStatus.cs" />
+    <Compile Include="Entities\LogicFileInfo\LogicFileInfoData.cs" />
+    <Compile Include="Entities\LogicFileInfo\LogicFileInfoDataCollection.cs" />
+    <Compile Include="Entities\LogicFileInfo\LogicFileInfoItemData.cs" />
+    <Compile Include="Entities\LogicFileInfo\LogicFileInfoItemDataCollection.cs" />
+    <Compile Include="Entities\LogicFileInfo\LogicFileResultItemData.cs" />
+    <Compile Include="Entities\LogicFileInfo\LogicFileResultItemDataCollection.cs" />
+    <Compile Include="Entities\Parameter\BaseMore2MoreUpdateParameter.cs" />
+    <Compile Include="Entities\Parameter\BaseGuidFetchParameter.cs" />
+    <Compile Include="Entities\Parameter\BaseGuidTreeFetchParameter.cs" />
+    <Compile Include="Entities\Parameter\BaseParameter.cs" />
+    <Compile Include="Configuration\ConfigurationElementCollectionBase.cs" />
+    <Compile Include="Configuration\ConfigurationStrings.cs" />
+    <Compile Include="Configuration\FMPConfiguration.cs" />
+    <Compile Include="Configuration\FMPConfigurationSection.cs" />
+    <Compile Include="Entities\Collections\BaseGuidCollection.cs" />
+    <Compile Include="Entities\BaseClasses\BaseInt32TreeEntity.cs" />
+    <Compile Include="Entities\BaseClasses\BaseMetaEntity.cs" />
+    <Compile Include="Entities\BaseClasses\BaseMetaGuidTreeEntity.cs" />
+    <Compile Include="Entities\BaseClasses\BaseMetaInt32TreeEntity.cs" />
+    <Compile Include="Entities\BaseClasses\BaseOrderDataEntity.cs" />
+    <Compile Include="Common\DataAction.cs" />
+    <Compile Include="Entities\Collections\DataCollectionBase.cs" />
+    <Compile Include="Entities\BaseClasses\BaseEntity.cs" />
+    <Compile Include="Entities\BaseClasses\BaseGuidTreeEntity.cs" />
+    <Compile Include="Entities\Parameter\BaseFetchParameter.cs" />
+    <Compile Include="Entities\Parameter\BaseUpdateParameter.cs" />
+    <Compile Include="Entities\PhysicalFileInfo\PhysicalFileInfoData.cs" />
+    <Compile Include="Entities\PhysicalFileInfo\PhysicalFileInfoDataCollection.cs" />
+    <Compile Include="Entities\RecordLockedData\RecordLockedData.cs" />
+    <Compile Include="Entities\RecordLockedData\RecordLockedDataCollection.cs" />
+    <Compile Include="Entities\RecordLockedData\RecordLockedFetchParameter.cs" />
+    <Compile Include="Entities\RemoteFileStorage\CloseFileItemData.cs" />
+    <Compile Include="Entities\RemoteFileStorage\CloseFileItemDataCollection.cs" />
+    <Compile Include="Entities\RemoteFileStorage\CloseFileParameter.cs" />
+    <Compile Include="Entities\RemoteFileStorage\CloseFileResult.cs" />
+    <Compile Include="Entities\RemoteFileStorage\CloseFileResultItemData.cs" />
+    <Compile Include="Entities\RemoteFileStorage\CloseFileResultItemDataCollection.cs" />
+    <Compile Include="Entities\RemoteFileStorage\CreateFileParameter.cs" />
+    <Compile Include="Entities\RemoteFileStorage\CreateFileResult.cs" />
+    <Compile Include="Entities\RemoteFileStorage\DeleteFileParameter.cs" />
+    <Compile Include="Entities\RemoteFileStorage\DeleteFileResult.cs" />
+    <Compile Include="Entities\RemoteFileStorage\FetchFileInfoParameter.cs" />
+    <Compile Include="Entities\RemoteFileStorage\FetchFileInfoResult.cs" />
+    <Compile Include="Entities\RemoteFileStorage\OpenFileItemData.cs" />
+    <Compile Include="Entities\RemoteFileStorage\OpenFileItemDataCollection.cs" />
+    <Compile Include="Entities\RemoteFileStorage\OpenFileParameter.cs" />
+    <Compile Include="Entities\RemoteFileStorage\OpenFileResult.cs" />
+    <Compile Include="Entities\RemoteFileStorage\OpenFileResultItemData.cs" />
+    <Compile Include="Entities\RemoteFileStorage\OpenFileResultItemDataCollection.cs" />
+    <Compile Include="Entities\RemoteFileStorage\ReadFileItemData.cs" />
+    <Compile Include="Entities\RemoteFileStorage\ReadWriteFileItemDataBase.cs" />
+    <Compile Include="Entities\RemoteFileStorage\ReadFileItemDataCollection.cs" />
+    <Compile Include="Entities\RemoteFileStorage\ReadFileParameter.cs" />
+    <Compile Include="Entities\RemoteFileStorage\ReadFileResult.cs" />
+    <Compile Include="Entities\RemoteFileStorage\ReadFileResultItemData.cs" />
+    <Compile Include="Entities\RemoteFileStorage\ReadFileResultItemDataCollection.cs" />
+    <Compile Include="Entities\RemoteFileStorage\UpdateFileInfoParameter.cs" />
+    <Compile Include="Entities\RemoteFileStorage\UpdateFileInfoResult.cs" />
+    <Compile Include="Entities\RemoteFileStorage\WriteFileItemData.cs" />
+    <Compile Include="Entities\RemoteFileStorage\WriteFileItemDataCollection.cs" />
+    <Compile Include="Entities\RemoteFileStorage\WriteFileParameter.cs" />
+    <Compile Include="Entities\RemoteFileStorage\WriteFileResult.cs" />
+    <Compile Include="Entities\RemoteFileStorage\WriteFileResultItemData.cs" />
+    <Compile Include="Entities\RemoteFileStorage\WriteFileResultItemDataCollection.cs" />
+    <Compile Include="Entities\RemoteStream\FileAccess.cs" />
+    <Compile Include="Entities\RemoteStream\FileMode.cs" />
+    <Compile Include="HttpServices\DynamicProxyExecutor.cs" />
+    <Compile Include="HttpServices\HttpRuntimeClient.cs" />
+    <Compile Include="Services\Web\HandlerProxy\HttpRuntimeClientProxy.cs" />
+    <Compile Include="HttpServices\HttpRuntimeService.cs" />
+    <Compile Include="HttpServices\InvokeContext.cs" />
+    <Compile Include="HttpServices\InvokeContextBase.cs" />
+    <Compile Include="HttpServices\MethodAttribute.cs" />
+    <Compile Include="HttpServices\UrlMapping.cs" />
+    <Compile Include="Services\RemoteStream\RemoteStreamContext.cs" />
+    <Compile Include="Entities\RemoteStream\UpdateMode.cs" />
+    <Compile Include="Entities\Result\BaseFetchResult.cs" />
+    <Compile Include="Entities\Result\BaseExecuteResult.cs" />
+    <Compile Include="Entities\BaseClasses\ExceptionResult.cs" />
+    <Compile Include="Entities\StoreMode\StoreModeData.cs" />
+    <Compile Include="Exceptions\ExecuteResultException.cs" />
+    <Compile Include="Exceptions\__Error.cs" />
+    <Compile Include="Interfaces\IFileStorageProvider.cs" />
+    <Compile Include="Interfaces\IRemoteFileStorage.cs" />
+    <Compile Include="Proxy\FMPServiceClientProviderManager.cs" />
+    <Compile Include="Proxy\FMPServiceProxyProviderManager.cs" />
+    <Compile Include="Runtime\ObjectFactory.cs" />
+    <Compile Include="Services\FileManager.cs" />
+    <Compile Include="Services\RemoteStream\RemoteStream.cs" />
+    <Compile Include="Services\Web\FileWebManager.cs" />
+    <Compile Include="Services\Web\HandlerProxy\HttpRemoteFileStorageProxy.cs" />
+    <Compile Include="Services\Web\Handlers\DownloadFileHandler.cs" />
+    <Compile Include="Services\Web\Handlers\GetFileHandler.cs" />
+    <Compile Include="Services\Web\Handlers\GetFileHandlerBase.cs" />
+    <Compile Include="Services\Web\Handlers\HandlerStrings.cs" />
+    <Compile Include="Services\Web\Handlers\HttpHandlerBase.cs" />
+    <Compile Include="Services\Web\Handlers\InceptFileHandler.cs" />
+    <Compile Include="Services\Web\Handlers\MIME.cs" />
+    <Compile Include="Services\Web\Handlers\ThumbImageHandler.cs" />
+    <Compile Include="Services\Web\Handlers\ThumbImageViewer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SR.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SR.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\LogHelper.cs" />
+    <Compile Include="Utils\ManagerHelper.cs" />
+    <Compile Include="Utils\PathHelper.cs" />
+    <Compile Include="Utils\Utility.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\Utils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+    </None>
+    <None Include="Configuration\App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SR.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SR.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Services\Web\Handlers\MIME.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="readme.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Services\Test\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
