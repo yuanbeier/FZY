@@ -101,12 +101,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Topevery.FMP.ObjectModel\Topevery.FMP.ObjectModel.csproj">
-      <Project>{F0128200-E367-4F76-B194-8D9E064A15CF}</Project>
-      <Name>Topevery.FMP.ObjectModel</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
       <Visible>False</Visible>
       <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
@@ -132,6 +126,12 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Topevery.FMP.ObjectModel\Topevery.FMP.ObjectModel.csproj">
+      <Project>{f0128200-e367-4f76-b194-8d9e064a15cf}</Project>
+      <Name>Topevery.FMP.ObjectModel</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

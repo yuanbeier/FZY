@@ -3,7 +3,7 @@
         $('.icon-check-square-o').click(function (e) {
             e.preventDefault();
             var callback = function (data) {
-                location.href = virtualDirName + '/admin/adv/index';
+                location.href =  '/admin/adv/index';
             }
             var obj =topevery.serializeObject($(".form-x"));
             topevery.ajax({
