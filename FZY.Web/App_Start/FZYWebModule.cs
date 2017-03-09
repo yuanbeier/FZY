@@ -35,6 +35,8 @@ namespace FZY.Web
             //{
             //    configuration.GlobalConfiguration.UseSqlServerStorage("Default");
             //});
+            //关于审计的配置               
+            Configuration.Auditing.IsEnabled = false;
         }
 
         public override void Initialize()

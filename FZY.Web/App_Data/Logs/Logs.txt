@@ -868,3 +868,7 @@ DEBUG 2017-03-09 21:59:05,681 [47   ] Abp.Logging.LogHelper                    -
 DEBUG 2017-03-09 21:59:05,683 [47   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'FZY.Sys.IFileRelationAppService' with service name 'app/fileRelation'.
 DEBUG 2017-03-09 21:59:05,684 [47   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'FZY.Roles.IRoleAppService' with service name 'app/role'.
 DEBUG 2017-03-09 21:59:05,685 [47   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'FZY.MultiTenancy.ITenantAppService' with service name 'app/tenant'.
+DEBUG 2017-03-09 22:01:28,094 [19   ] Abp.Modules.AbpModuleManager             - Shutting down has been started
+DEBUG 2017-03-09 22:01:28,096 [19   ] Abp.BackgroundJobs.BackgroundJobManager  - Stop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-03-09 22:01:28,098 [19   ] Abp.BackgroundJobs.BackgroundJobManager  - WaitToStop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-03-09 22:01:28,098 [19   ] Abp.Modules.AbpModuleManager             - Shutting down completed.
