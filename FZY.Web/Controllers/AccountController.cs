@@ -146,7 +146,7 @@ namespace FZY.Web.Controllers
                     return new UserFriendlyException(L("LoginFailed"), "Your email address is not confirmed. You can not login"); //TODO: localize message
                 default: //Can not fall to default actually. But other result types can be added in the future and we may forget to handle it
                     Logger.Warn("Unhandled login fail reason: " + result);
-                    return new UserFriendlyException(L("LoginFailed"));
+                    return new UserFriendlyException("登录失败");
             }
         }
 
