@@ -45,7 +45,7 @@
                             data.result.rows[i].id +
                             '"><img src="' + GetUrl(data.result.rows[i].fileId) +
                         '"  onload="DrawImg1(this,200,200);" /></a></p>' +
-                            '</div><div class="cnsz_names"><p><a style="font-weight:bold;color:#008837;" href="index?id=' + data.result.rows[i].id + '">' + data.result.rows[i].name + '</a></p></div></div>';
+                            '</div><div class="cnsz_names"><p><a style="font-weight:bold;color:#008837;" href="' + href + data.result.rows[i].id + '">' + data.result.rows[i].name + '</a></p></div></div>';
                     }
                     $div.html(divHtml);
                 }

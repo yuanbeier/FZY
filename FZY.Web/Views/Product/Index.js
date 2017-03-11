@@ -33,7 +33,7 @@
                 var data = row.result;
                 
                 for (var i = 0; i < data.length; i++) {
-                    $("#manPic").attr("src", data[i].imageShowUrl);
+                    $("#manPic").attr("src", GetUrl(data[i].imageShowUrl,680,330));
                 }
         
             }
@@ -50,7 +50,7 @@
                 var hdFileData = "";
                 for (var i = 0; i < data.length; i++) {
                     hdFileData += '<li><img src="' +
-                        data[i].imageShowUrl +
+                       GetUrl(data[i].imageShowUrl,100,100) +
                         '" width="100" Height="100" alt="Nozomi">' +
                         '<br>' + data[i].fileNameWithoutExten + '</li>';
 
@@ -60,8 +60,8 @@
             }
         });
 
-        function GetUrl(imageUrl) {
-            var url = virtualDirName + 'Ashx/ThumbImage.ashx?FID=' + imageUrl + '&W=200&H=180';
+        function GetUrl(imageUrl,width,heigth) {
+            var url =  imageUrl + '&W='+width+'&H='+ heigth;
             return url;
         }
     });
