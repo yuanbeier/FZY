@@ -59,5 +59,15 @@ namespace FZY.WebSite.Dto
         /// 文件Id
         /// </summary>
         public Guid FileId { set; get; }
+
+        /// <summary>
+        /// 产品类别Id
+        /// </summary>
+        public int CategoryId { set; get; }
+
+        /// <summary>
+        /// 产品类别Id
+        /// </summary>
+        public string CategoryName { set; get; }
     }
 }

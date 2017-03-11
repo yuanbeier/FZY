@@ -12,7 +12,8 @@
     @Scripts.Render("~/Bundles/vendor/js/top")
     <script type="text/javascript">
         /* 虚拟目录名称 */
-        var  virtualDirName = '@ApplicationPath';
+        var virtualDirName = '@ApplicationPath';
+        var categoryId = '@ViewBag.CategoryId';
     </script>
 </head>
 <body>
@@ -84,7 +85,7 @@
 
                     <div class="about_right">
                         <div class="about_right_title">
-                            <p>Position：Home >PRODUCTS </p>
+                            <p>Position：Home > PRODUCTS </p>
                         </div>
                         <div class="contents">
                         </div>

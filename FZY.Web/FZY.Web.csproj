@@ -401,6 +401,7 @@
     <Content Include="WebServices\RemoteFileStorageService.asmx" />
     <Content Include="Areas\Admin\Views\Category\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Category\Add.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\Edit.cshtml" />
     <None Include="Properties\PublishProfiles\FZY.Config.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="js\uploader.js" />
@@ -597,6 +598,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Layout\TopMenuViewModel.cs" />
+    <Compile Include="Models\WebSite\CategoryModel.cs" />
     <Compile Include="Models\WebSite\HomePicModel.cs" />
     <Compile Include="Models\WebSite\ProductModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -669,7 +671,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Areas\Admin\Views\Account\" />
     <Folder Include="Views\File\" />
   </ItemGroup>
   <ItemGroup>

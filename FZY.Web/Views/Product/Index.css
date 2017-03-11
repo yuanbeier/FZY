@@ -26,11 +26,11 @@ h3{
 	margin-bottom:10px;
 	color:#FFF;
 	font-size:1.2em;
-	background-color: #71B6FE;
-    background: -moz-linear-gradient(top, #AFD6EC, #71B6FE); /* mozilla */
-    background: -webkit-gradient(linear, center top, center bottom, from(#AFD6EC), to(#71B6FE)); /* Webkit */
-	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#FFAFD6EC', endColorstr='#FF71B6FE'); /* IE5.5浠ヤ笂 */
-	background: linear-gradient(to bottom, #AFD6EC, #71B6FE);/* IE10+, W3C */
+	background-color: #008837;
+    background: -moz-linear-gradient(top, #008837, #008837); /* mozilla */
+    background: -webkit-gradient(linear, center top, center bottom, from(#008837), to(#008837)); /* Webkit */
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#008837', endColorstr='#008837'); /* IE5.5浠ヤ笂 */
+	background: linear-gradient(to bottom, #008837, #008837);/* IE10+, W3C */
 }
 
 h4{
@@ -54,7 +54,7 @@ h4:before{
 	position:absolute; 
 	top:14px; 
 	left:7px; 
-	background-color:#71B6FE;
+	background-color:#008837;
 	box-shadow: 0 0 2px 2px rgba(255,255,255,0.2) inset;
 	filter:alpha(opacity=70);
 	-moz-opacity:0.70;

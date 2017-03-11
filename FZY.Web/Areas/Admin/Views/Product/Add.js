@@ -22,16 +22,17 @@
         function bindCategory(response) {
             if (response.result.rows != null && response.result.total != undefined && response.result.total > 0) {
                 var html = "";
+                var id = $("#categoryId").val();
                 for (var i = 0; i < response.result.rows.length; i++) {
                     var n = response.result.rows[i];
-                    if (categoryId && categoryId == n.id) {
-                        html = '<option select value=\'' + n.id + '\'>' + n.name
+                    if (id && id == n.id) {
+                        html = '<option selected value=\'' + n.id + '\'>' + n.name
                       + '</option>';
                     } else {
                         html = '<option value=\'' + n.id + '\'>' + n.name
                       + '</option>';
                     }
-                    $("#categoryId").append(html);
+                    $("#category").append(html);
                 }
             }
         }

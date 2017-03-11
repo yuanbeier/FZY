@@ -11,6 +11,10 @@ namespace FZY.WebSite.Dto
     public class ProductInput
     {
         /// <summary>
+        /// 产品Id
+        /// </summary>
+        public int? Id { set; get; }
+        /// <summary>
         /// 产品名称
         /// </summary>
         public string Name { set; get; }

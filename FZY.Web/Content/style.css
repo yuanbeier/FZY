@@ -397,6 +397,12 @@ form{
 	color:#008837;
 }
 
+.about_right_title a{
+	font-size:12px;
+	font-family:'Arial';
+	color:#008837;
+}
+
 .contents{
 	width:681px;
 	height:auto;
@@ -405,6 +411,7 @@ form{
 	table-layout:fixed; 
 	word-break: break-all; 
 	overflow:hidden;
+    min-height: 400px;
 }
 
 .aa{

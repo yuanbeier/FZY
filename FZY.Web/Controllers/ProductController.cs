@@ -31,6 +31,7 @@ namespace FZY.Web.Controllers
         // GET: Product
         public ActionResult List()
         {
+            ViewBag.CategoryId = Request.QueryString["categoryId"];
             return View();
         }
     }

@@ -16,5 +16,10 @@ namespace FZY.WebSite.Dto
         /// 产品名称
         /// </summary>
         public string Name { set; get; }
+
+        /// <summary>
+        /// 产品类别Id
+        /// </summary>
+        public int? CategoryId { set; get; }
     }
 }

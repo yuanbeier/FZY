@@ -1,36 +1,36 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Web;
 using Abp.AutoMapper;
-using Abp.Domain.Entities.Auditing;
+using FZY.WebSite.Dto;
 
-namespace FZY.WebSite.Dto
+namespace FZY.Web.Models.WebSite
 {
-    /// <summary>
-    /// 产品类别
-    /// </summary>
-    [AutoMap(typeof(Category))]
-    public class CategoryInput
+    [AutoMap(typeof(CategoryOutput))]
+
+    public class CategoryModel
     {
         /// <summary>
-        /// 产品Id
+        /// Id
         /// </summary>
-        public int? Id { set; get; }
-
+        public int Id { set; get; }
         /// <summary>
-        /// 类别名称
+        /// 产品名称
         /// </summary>
         public string Name { set; get; }
 
         /// <summary>
-        /// 类别描述
+        /// 产品描述
         /// </summary>
         [MaxLength(500)]
         public string Description { set; get; }
 
         /// <summary>
-        /// 文件Id
+        /// 创建时间
         /// </summary>
-        public string FileId { set; get; }
+        public string CreationTime { set; get; }
 
 
         /// <summary>

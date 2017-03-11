@@ -9,14 +9,12 @@
 {
     <script src="~/js/base.js"></script>
     <script src="~/Areas/Admin/Views/Product/Add.js"></script>
-   <script>
-        var categoryId = @Model.CategoryId;
-   </script>
 }
 <div class="panel admin-panel">
     <div class="panel-head" id="add"><strong><span class="icon-pencil-square-o"></span>编辑产品</strong></div>
     <div class="body-content">
         <form method="post" class="form-x">
+            <input type="hidden" name="id" id="id" value="@Model.Id" />
             <div class="form-group">
                 <div class="label">
                     <label>标题：</label>
@@ -28,11 +26,12 @@
             </div>
             <div class="form-group">
                 <div class="label">
-                    <label>标题：</label>
+                    <label>产品类别：</label>
                 </div>
                 <div class="field">
-                    <select name="categoryId" id="categoryId" class="select w50"></select>
+                    <select name="categoryId" id="category" class="select w50"></select>
                 </div>
+                <input type="hidden" id="categoryId" value="@Model.CategoryId" />
             </div>
             <div class="form-group">
                 <div class="label">
@@ -55,12 +54,12 @@
                 </div>
                 <div class="field">
                     @Html.Partial("UploadFilePartialView", new UploadFileDto()
-               {
-                   UploadId = "IdFile2",
-                   UploadContentType = "jpeg,jpg,png",
-                   KeyId = @Model.Id,
-                   ModuleId = ModuleType.ProductDetail
-               })
+                    {
+                        UploadId = "IdFile2",
+                        UploadContentType = "jpeg,jpg,png",
+                        KeyId = @Model.Id,
+                        ModuleId = ModuleType.ProductDetail
+                    })
                 </div>
             </div>
 
@@ -69,7 +68,7 @@
                     <label>描述：</label>
                 </div>
                 <div class="field">
-                    <textarea class="input" name="description" style=" height:90px;">@Model.Description</textarea>
+                    <textarea class="input" name="description" style="height: 90px;">@Model.Description</textarea>
                     <div class="tips"></div>
                 </div>
             </div>
@@ -81,7 +80,7 @@
                     <label>货号：</label>
                 </div>
                 <div class="field">
-                    <input type="text" class="input" name="style" value="@Model.Style" />
+                    <input type="text" class="input" name="style" value="@Model.Style"/>
                 </div>
             </div>
             <div class="form-group">
@@ -89,7 +88,7 @@
                     <label>尺寸：</label>
                 </div>
                 <div class="field">
-                    <input type="text" class="input" name="size" value="@Model.Size" />
+                    <input type="text" class="input" name="size" value="@Model.Size"/>
                 </div>
             </div>
             <div class="form-group">
@@ -97,7 +96,7 @@
                     <label>包装：</label>
                 </div>
                 <div class="field">
-                    <textarea type="text" class="input" name="package" style="height:80px;">@Model.Package</textarea>
+                    <textarea type="text" class="input" name="package" style="height: 80px;">@Model.Package</textarea>
                 </div>
             </div>
             <div class="form-group">
@@ -105,7 +104,7 @@
                     <label>排序：</label>
                 </div>
                 <div class="field">
-                    <input type="text" class="input w50" name="sort" value="@Model.Sort" data-validate="number:排序必须为数字" />
+                    <input type="text" class="input w50" name="sort" value="@Model.Sort" data-validate="number:排序必须为数字"/>
                     <div class="tips"></div>
                 </div>
             </div>

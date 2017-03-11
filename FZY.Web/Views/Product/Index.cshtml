@@ -67,7 +67,7 @@
 
                     <div class="about_right">
                         <div class="about_right_title">
-                            <p>Position：Home >@Model.Name</p>
+                            <p>Position：Home > <a href="@Url.Action("List")?categoryId=@Model.CategoryId">@Model.CategoryName</a> > @Model.Name</p>
                         </div>
                         <div class="contents">
                             <p style=" text-align:center; font-weight:bold;margin-bottom:10px;">@Model.Name</p>
@@ -79,11 +79,11 @@
                                     <td class="tabletext">@Model.Size</td>
                                 </tr>
                                 <tr>
-                                    <td class="tabletitle">Style</td>
+                                    <td class="tabletitle">Item No.</td>
                                     <td class="tabletext">@Model.Style</td>
                                 </tr>
                                 <tr>
-                                    <td class="tabletitle">Package</td>
+                                    <td class="tabletitle">Packaging</td>
                                     <td class="tabletext">@Model.Package</td>
                                 </tr>
                             </table>

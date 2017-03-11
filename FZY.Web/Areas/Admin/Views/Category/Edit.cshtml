@@ -1,0 +1,73 @@
+﻿@using FZY
+@using FZY.Web.Models.File
+@model FZY.Web.Models.WebSite.CategoryModel
+@{
+    ViewBag.Title = "Edit";
+}
+
+@section scripts
+{
+    <script src="~/js/base.js"></script>
+    <script src="~/Areas/Admin/Views/Category/Add.js"></script>
+}
+<div class="panel admin-panel">
+    <div class="panel-head" id="add"><strong><span class="icon-pencil-square-o"></span>编辑产品</strong></div>
+    <div class="body-content">
+        <form method="post" class="form-x">
+            <input type="hidden" name="id" id="id" value="@Model.Id" />
+            <div class="form-group">
+                <div class="label">
+                    <label>标题：</label>
+                </div>
+                <div class="field">
+                    <input type="text" class="input w50" value="@Model.Name" name="name" data-validate="required:请输入标题" />
+                    <div class="tips"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="label">
+                    <label>产品图片：</label>
+                </div>
+                <div class="field">
+                    @Html.Partial("UploadFilePartialView", new UploadFileDto()
+               {
+                   UploadId = "IdFile",
+                   UploadContentType = "jpeg,jpg,png",
+                   KeyId = @Model.Id,
+                   ModuleId = ModuleType.Category
+               })
+                </div>
+
+            </div>
+            <div class="form-group">
+                <div class="label">
+                    <label>描述：</label>
+                </div>
+                <div class="field">
+                    <textarea class="input" name="description" style="height: 90px;">@Model.Description</textarea>
+                    <div class="tips"></div>
+                </div>
+            </div>
+          
+            <div class="form-group">
+                <div class="label">
+                    <label>排序：</label>
+                </div>
+                <div class="field">
+                    <input type="text" class="input w50" name="sort" value="@Model.Sort" data-validate="number:排序必须为数字" />
+                    <div class="tips"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="label">
+                    <label></label>
+                </div>
+                <div class="field">
+                    <button class="button bg-main icon-check-square-o" type="submit"> 提交</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+

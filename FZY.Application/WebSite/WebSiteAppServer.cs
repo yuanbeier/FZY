@@ -74,8 +74,23 @@ namespace FZY.WebSite
         public async Task AddProductAsync(ProductInput input)
         {
             var product = input.MapTo<Product>();
-            product = _productRepository.Insert(product);
-            CurrentUnitOfWork.SaveChanges();
+            if (input.Id.HasValue)
+            {
+                product = _productRepository.Get(input.Id.Value);
+                product.CategoryId = input.CategoryId;
+                product.Description = input.Description;
+                product.Name = input.Name;
+                product.Package = input.Package;
+                product.Style = input.Style;
+                product.Sort = input.Sort;
+                product.Size = input.Size;
+                FileRelationRepository.Delete(x => x.KeyId == input.Id.Value && (x.ModuleId== ModuleType.ProductMan || x.ModuleId == ModuleType.ProductDetail));
+            }
+            else
+            {
+                product = _productRepository.Insert(product);
+                CurrentUnitOfWork.SaveChanges();
+            }
             await AddFileRelationAsync(input.ProductImage, product.Id, ModuleType.ProductMan);
             await AddFileRelationAsync(input.StyleImage, product.Id, ModuleType.ProductDetail);
 
@@ -89,7 +104,8 @@ namespace FZY.WebSite
         public async Task<PagedResultOutputDto<ProductOutput>> GetProductListAsync(GetProductListInput input)
         {
             var query = _productRepository.GetAll().
-               WhereIf(!string.IsNullOrEmpty(input.Name), x => x.Name == input.Name);
+               WhereIf(!string.IsNullOrEmpty(input.Name), x => x.Name == input.Name)
+               .WhereIf(input.CategoryId.HasValue,x => x.CategoryId == input.CategoryId.Value);
             var count = query.Count();
             var result = await query.OrderByDescending(x => x.CreationTime).Skip(input.SkipCount).Take(input.PageCount).ToListAsync();
             var reusltOut = result.MapTo<List<ProductOutput>>();
@@ -114,7 +130,7 @@ namespace FZY.WebSite
         /// <returns></returns>
         public async Task<ProductOutput> GetProductByIdAsync(int id)
         {
-            return (await _productRepository.GetAsync(id)).MapTo<ProductOutput>();
+            return (await _productRepository.GetAll().Where(x => x.Id == id).Include(x => x.Category).FirstAsync()).MapTo<ProductOutput>();
         }
 
         /// <summary>
@@ -135,8 +151,19 @@ namespace FZY.WebSite
         public async Task AddCategoryAsync(CategoryInput input)
         {
             var category = input.MapTo<Category>();
-            await _categoryRepository.InsertAsync(category);
-            CurrentUnitOfWork.SaveChanges();
+            if (input.Id.HasValue)
+            {
+                category = _categoryRepository.Get(input.Id.Value);
+                category.Description = input.Description;
+                category.Name = input.Name;
+                category.Sort = input.Sort;
+                FileRelationRepository.Delete(x=> x.KeyId == input.Id && x.ModuleId == ModuleType.Category);
+            }
+            else
+            {
+                await _categoryRepository.InsertAsync(category);
+                CurrentUnitOfWork.SaveChanges();
+            }
             await AddFileRelationAsync(input.FileId, category.Id, ModuleType.Category);
         }
 
@@ -168,6 +195,10 @@ namespace FZY.WebSite
 
         public async Task DeleteCategoryAsync(int id)
         {
+            if (_productRepository.GetAll().Any(x => x.CategoryId == id))
+            {
+                return;
+            }
             await _categoryRepository.DeleteAsync(id);
         }
     }
