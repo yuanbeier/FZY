@@ -27,9 +27,6 @@ namespace FZY.WebSite
         /// </summary>
         public int Sort { set; get; }
 
-        /// <summary>
-        /// 图片Id
-        /// </summary>
-        public Guid FileId { set; get; }
+   
     }
 }

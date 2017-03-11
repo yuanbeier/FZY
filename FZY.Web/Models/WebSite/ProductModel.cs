@@ -56,6 +56,11 @@ namespace FZY.Web.Models.WebSite
         /// </summary>
         public int Sort { set; get; }
 
+        /// <summary>
+        /// 产品类别Id
+        /// </summary>
+        public int CategoryId { set; get; }
+
   
     }
 }

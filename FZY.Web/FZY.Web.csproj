@@ -349,6 +349,7 @@
     <Content Include="Abp\Framework\styles\abp.mixings.min.css" />
     <Content Include="Abp\Framework\styles\utils\ie10fix.css" />
     <Content Include="Areas\Admin\Views\Adv\Add.js" />
+    <Content Include="Areas\Admin\Views\Category\Add.js" />
     <Content Include="Areas\Admin\Views\Product\Add.js" />
     <Content Include="Content\admin.css" />
     <Content Include="Content\bootstrap.css" />
@@ -398,6 +399,8 @@
     <Content Include="Areas\Admin\Views\Product\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Product\Edit.cshtml" />
     <Content Include="WebServices\RemoteFileStorageService.asmx" />
+    <Content Include="Areas\Admin\Views\Category\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\Add.cshtml" />
     <None Include="Properties\PublishProfiles\FZY.Config.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="js\uploader.js" />
@@ -667,7 +670,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\Account\" />
-    <Folder Include="Areas\Admin\Views\Category\" />
     <Folder Include="Views\File\" />
   </ItemGroup>
   <ItemGroup>

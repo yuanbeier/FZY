@@ -9,9 +9,12 @@
 {
     <script src="~/js/base.js"></script>
     <script src="~/Areas/Admin/Views/Product/Add.js"></script>
+   <script>
+        var categoryId = @Model.CategoryId;
+   </script>
 }
 <div class="panel admin-panel">
-    <div class="panel-head" id="add"><strong><span class="icon-pencil-square-o"></span>增加内容</strong></div>
+    <div class="panel-head" id="add"><strong><span class="icon-pencil-square-o"></span>编辑产品</strong></div>
     <div class="body-content">
         <form method="post" class="form-x">
             <div class="form-group">
@@ -19,8 +22,16 @@
                     <label>标题：</label>
                 </div>
                 <div class="field">
-                    <input type="text" class="input w50" value="@Model.Name" name="name" data-validate="required:请输入标题" />
+                    <input type="text" class="input w50" value="@Model.Name" name="name" data-validate="required:请输入标题"/>
                     <div class="tips"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="label">
+                    <label>标题：</label>
+                </div>
+                <div class="field">
+                    <select name="categoryId" id="categoryId" class="select w50"></select>
                 </div>
             </div>
             <div class="form-group">

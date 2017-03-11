@@ -51,5 +51,10 @@ namespace FZY.WebSite
         /// 产品类别
         /// </summary>
         public Category Category { set; get; }
+
+        /// <summary>
+        /// 产品类别Id
+        /// </summary>
+        public int CategoryId { set; get; }
     }
 }

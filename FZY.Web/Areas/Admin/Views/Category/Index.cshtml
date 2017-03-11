@@ -1,9 +1,9 @@
 ﻿<form method="post" action="" id="listform">
     <div class="panel admin-panel">
-        <div class="panel-head"><strong class="icon-reorder"> 产品列表</strong> <a href="" style="float:right; display:none;">添加字段</a></div>
+        <div class="panel-head"><strong class="icon-reorder"> 类别列表</strong> <a href="" style="float:right; display:none;">添加字段</a></div>
         <div class="padding border-bottom">
             <ul class="search" style="padding-left:10px;">
-                <li> <a class="button border-main icon-plus-square-o" href="@Url.Action("add")"> 添加产品</a> </li>
+                <li> <a class="button border-main icon-plus-square-o" href="@Url.Action("add")"> 添加类别</a> </li>
                 <li>搜索：</li>
                 <li>
                     <input type="text" placeholder="请输入搜索关键字" id="keywords" class="input" style="width:250px; line-height:17px;display:inline-block" />
@@ -13,19 +13,18 @@
         </div>
         <table class="table table-hover text-center">
             <thead>
-            <tr>
-                <th width="100" style="text-align: left; padding-left: 20px;">ID</th>
-                <th width="10%">排序</th>
-                <th>图片</th>
-                <th>名称</th><th>货号</th><th>尺寸</th>
-                <th width="10%">更新时间</th>
-                <th width="310">操作</th>
-            </tr>
+                <tr>
+                    <th width="100" style="text-align: left; padding-left: 20px;">ID</th>
+                    <th width="10%">排序</th>
+                    <th>图片</th>
+                    <th>名称</th>
+                    <th>描述</th>
+                    <th width="10%">更新时间</th>
+                    <th width="310">操作</th>
+                </tr>
             </thead>
-            <tbody>
-            
-            </tbody>
-        
+            <tbody></tbody>
+
 
             <tfoot>
                 <tr>
@@ -39,13 +38,13 @@
 </form>
 @section styles
 {
-   <link href="~/Content/pagination.css" rel="stylesheet" />
+    <link href="~/Content/pagination.css" rel="stylesheet" />
 }
 @section scripts{
 
     <script src="~/js/jquery.pagination.js"></script>
     <script type="text/javascript">
-        
+
         //分页查询开始
         $(document).ready(function () {
             getDataList(0, null);
@@ -58,7 +57,7 @@
         function getDataList(currPage, jg) {
 
             $.ajax({
-                url: virtualDirName + "api/services/app/webSiteAppServer/GetProductListAsync",
+                url: virtualDirName + "api/services/app/webSiteAppServer/GetCategoryListAsync",
                 type: "post",
                 data: JSON.stringify({ name: $("#keywords").val(), pageIndex: currPage + 1, pageCount: pageCount }),
                 contentType: "application/json",
@@ -80,7 +79,7 @@
                             }
                             loadDataList(response.result.rows);
                         } else {
-                            
+
                         }
                     } else {
                         //暂无数据
@@ -114,10 +113,7 @@
                     n.name +
                     '</td>' +
                     ' <td>' +
-                    n.style +
-                    '</td>' +
-                    ' <td>' +
-                    n.size +
+                    n.description +
                     '</td>' +
                     '<td>' +
                     n.creationTime +
@@ -137,7 +133,7 @@
         function del(id){
             if(confirm("您确定要删除吗?")){
                 $.ajax({
-                    url: virtualDirName + "api/services/app/webSiteAppServer/DeleteProductAsync?id=" + id,
+                    url: virtualDirName + "api/services/app/webSiteAppServer/DeleteCategoryAsync?id=" + id,
                     type: "Post",
                     success: function (data) {
                         alert("删除成功！");

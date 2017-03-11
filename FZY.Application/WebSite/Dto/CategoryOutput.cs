@@ -20,29 +20,12 @@ namespace FZY.WebSite.Dto
         /// </summary>
         public string Name { set; get; }
 
+
         /// <summary>
         /// 产品描述
         /// </summary>
         [MaxLength(500)]
         public string Description { set; get; }
-
-        /// <summary>
-        /// 货号
-        /// </summary>
-        [MaxLength(100)]
-        public string Style { set; get; }
-
-        /// <summary>
-        /// 尺寸
-        /// </summary>
-        [MaxLength(100)]
-        public string Size { set; get; }
-
-        /// <summary>
-        /// 包装
-        /// </summary>
-        [MaxLength(200)]
-        public string Package { set; get;}
 
         /// <summary>
         /// 创建时间

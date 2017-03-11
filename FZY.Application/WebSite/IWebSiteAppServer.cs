@@ -69,21 +69,21 @@ namespace FZY.WebSite
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        Task AddCategoryAsync(ProductInput input);
+        Task AddCategoryAsync(CategoryInput input);
 
 
         /// <summary>
         /// 获取产品类别列表
         /// </summary>
         /// <returns></returns>
-        Task<PagedResultOutputDto<ProductOutput>> GetCategoryListAsync(GetProductListInput input);
+        Task<PagedResultOutputDto<CategoryOutput>> GetCategoryListAsync(GetProductListInput input);
 
         /// <summary>
         /// 获取产品类别
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        Task<ProductOutput> GetCategoryByIdAsync(int id);
+        Task<CategoryOutput> GetCategoryByIdAsync(int id);
 
         /// <summary>
         /// 删除产品类别

@@ -24,10 +24,13 @@ namespace FZY.WebSite
 
         private readonly IRepository<Product> _productRepository;
 
-        public WebSiteAppServer(IRepository<HomePic> homePicRepository, IRepository<Product> productRepository)
+        private readonly IRepository<Category> _categoryRepository;
+
+        public WebSiteAppServer(IRepository<HomePic> homePicRepository, IRepository<Product> productRepository, IRepository<Category> categoryRepository)
         {
             _homePicRepository = homePicRepository;
             _productRepository = productRepository;
+            _categoryRepository = categoryRepository;
         }
 
 
@@ -122,6 +125,50 @@ namespace FZY.WebSite
         public async Task DeleteProductAsync(int id)
         {
             await _productRepository.DeleteAsync(id);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        public async Task AddCategoryAsync(CategoryInput input)
+        {
+            var category = input.MapTo<Category>();
+            await _categoryRepository.InsertAsync(category);
+            CurrentUnitOfWork.SaveChanges();
+            await AddFileRelationAsync(input.FileId, category.Id, ModuleType.Category);
+        }
+
+        public async Task<PagedResultOutputDto<CategoryOutput>> GetCategoryListAsync(GetProductListInput input)
+        {
+            var query =_categoryRepository.GetAll().
+            WhereIf(!string.IsNullOrEmpty(input.Name), x => x.Name == input.Name);
+            var count = query.Count();
+            var result = await query.OrderByDescending(x => x.CreationTime).Skip(input.SkipCount).Take(input.PageCount).ToListAsync();
+            var reusltOut = result.MapTo<List<CategoryOutput>>();
+            foreach (var categoryOutput in reusltOut)
+            {
+                var firstOrDefault
+                    = FileRelationRepository
+                    .GetAll().FirstOrDefault
+                    (x => x.KeyId == categoryOutput.Id
+                          && x.ModuleId == ModuleType.Category);
+                if (firstOrDefault != null)
+                    categoryOutput.FileId = firstOrDefault
+                        .FileId;
+            }
+            return new PagedResultOutputDto<CategoryOutput>(count, reusltOut);
+        }
+
+        public async Task<CategoryOutput> GetCategoryByIdAsync(int id)
+        {
+            return (await _categoryRepository.GetAsync(id)).MapTo<CategoryOutput>();
+        }
+
+        public async Task DeleteCategoryAsync(int id)
+        {
+            await _categoryRepository.DeleteAsync(id);
         }
     }
 }

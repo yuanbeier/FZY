@@ -19,5 +19,29 @@
 
         });
 
+        function bindCategory(response) {
+            if (response.result.rows != null && response.result.total != undefined && response.result.total > 0) {
+                var html = "";
+                for (var i = 0; i < response.result.rows.length; i++) {
+                    var n = response.result.rows[i];
+                    if (categoryId && categoryId == n.id) {
+                        html = '<option select value=\'' + n.id + '\'>' + n.name
+                      + '</option>';
+                    } else {
+                        html = '<option value=\'' + n.id + '\'>' + n.name
+                      + '</option>';
+                    }
+                    $("#categoryId").append(html);
+                }
+            }
+        }
+
+        topevery.ajax({
+            url: 'api/services/app/webSiteAppServer/GetCategoryListAsync',
+            type: 'POST',
+            data: JSON.stringify({  pageIndex:  1, pageCount: 20 }),
+            contentType: "application/json"
+        }, bindCategory, false);
+
     });
 })();
