@@ -105,6 +105,7 @@
     <Compile Include="Editions\EditionManager.cs" />
     <Compile Include="Features\FeatureValueStore.cs" />
     <Compile Include="Sys\FileRelation.cs" />
+    <Compile Include="WebSite\Category.cs" />
     <Compile Include="WebSite\Product.cs" />
     <Compile Include="WebSite\HomePic.cs" />
     <Compile Include="MultiTenancy\Tenant.cs" />

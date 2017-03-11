@@ -40,21 +40,21 @@ namespace FZY.WebSite
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        Task AddProductAsync(ProducInput input);
+        Task AddProductAsync(ProductInput input);
 
 
         /// <summary>
         /// 获取产品列表
         /// </summary>
         /// <returns></returns>
-        Task<PagedResultOutputDto<ProducOutput>> GetProductListAsync(GetProductListInput input);
+        Task<PagedResultOutputDto<ProductOutput>> GetProductListAsync(GetProductListInput input);
 
         /// <summary>
         /// 获取产品
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        Task<ProducOutput> GetProductByIdAsync(int id);
+        Task<ProductOutput> GetProductByIdAsync(int id);
 
         /// <summary>
         /// 删除产品
@@ -62,5 +62,34 @@ namespace FZY.WebSite
         /// <param name="id"></param>
         /// <returns></returns>
         Task DeleteProductAsync(int id);
+
+
+        /// <summary>
+        /// 添加产品类别
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        Task AddCategoryAsync(ProductInput input);
+
+
+        /// <summary>
+        /// 获取产品类别列表
+        /// </summary>
+        /// <returns></returns>
+        Task<PagedResultOutputDto<ProductOutput>> GetCategoryListAsync(GetProductListInput input);
+
+        /// <summary>
+        /// 获取产品类别
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        Task<ProductOutput> GetCategoryByIdAsync(int id);
+
+        /// <summary>
+        /// 删除产品类别
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        Task DeleteCategoryAsync(int id);
     }
 }

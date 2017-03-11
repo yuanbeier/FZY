@@ -468,7 +468,6 @@
     <Content Include="images\20150605100403_67065.jpg" />
     <Content Include="Content\flags\famfamfam-flags.css" />
     <Content Include="Content\flags\famfamfam-flags.png" />
-    <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="images\logo_03.png" />
     <Content Include="images\search_icon_03.png" />
@@ -561,6 +560,7 @@
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdvController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
     <Compile Include="Ashx\DownloadFile.ashx.cs">
@@ -574,7 +574,7 @@
     </Compile>
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\ContractController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
@@ -622,7 +622,7 @@
     <Content Include="Views\Tenants\Index.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Shared\UploadFilePartialView.cshtml" />
-    <Content Include="Views\Contract\Index.cshtml" />
+    <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\Product\List.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Shared\_Foot.cshtml" />
@@ -667,6 +667,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\Account\" />
+    <Folder Include="Areas\Admin\Views\Category\" />
     <Folder Include="Views\File\" />
   </ItemGroup>
   <ItemGroup>

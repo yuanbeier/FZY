@@ -68,7 +68,7 @@ namespace FZY.WebSite
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        public async Task AddProductAsync(ProducInput input)
+        public async Task AddProductAsync(ProductInput input)
         {
             var product = input.MapTo<Product>();
             product = _productRepository.Insert(product);
@@ -83,13 +83,13 @@ namespace FZY.WebSite
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        public async Task<PagedResultOutputDto<ProducOutput>> GetProductListAsync(GetProductListInput input)
+        public async Task<PagedResultOutputDto<ProductOutput>> GetProductListAsync(GetProductListInput input)
         {
             var query = _productRepository.GetAll().
                WhereIf(!string.IsNullOrEmpty(input.Name), x => x.Name == input.Name);
             var count = query.Count();
             var result = await query.OrderByDescending(x => x.CreationTime).Skip(input.SkipCount).Take(input.PageCount).ToListAsync();
-            var reusltOut = result.MapTo<List<ProducOutput>>();
+            var reusltOut = result.MapTo<List<ProductOutput>>();
             foreach (var producOutput in reusltOut)
             {
                 var firstOrDefault
@@ -101,7 +101,7 @@ namespace FZY.WebSite
                     producOutput.FileId = firstOrDefault
                         .FileId;
             }
-            return new PagedResultOutputDto<ProducOutput>(count, reusltOut);
+            return new PagedResultOutputDto<ProductOutput>(count, reusltOut);
         }
 
         /// <summary>
@@ -109,9 +109,9 @@ namespace FZY.WebSite
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public async Task<ProducOutput> GetProductByIdAsync(int id)
+        public async Task<ProductOutput> GetProductByIdAsync(int id)
         {
-            return (await _productRepository.GetAsync(id)).MapTo<ProducOutput>();
+            return (await _productRepository.GetAsync(id)).MapTo<ProductOutput>();
         }
 
         /// <summary>

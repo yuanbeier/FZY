@@ -8,8 +8,8 @@ namespace FZY.WebSite.Dto
     /// <summary>
     /// 产品类别
     /// </summary>
-    [AutoMap(typeof(Product))]
-    public class ProducOutput
+    [AutoMap(typeof(Category))]
+    public class CategoryOutput
     {
         /// <summary>
         /// Id

@@ -140,8 +140,10 @@
     <Compile Include="WebSite\Dto\HomePicOutput.cs" />
     <Compile Include="WebSite\Dto\HomePicInput.cs" />
     <Compile Include="Page\PagedResultOutputDto.cs" />
-    <Compile Include="WebSite\Dto\ProducOutput.cs" />
-    <Compile Include="WebSite\Dto\ProducInput.cs" />
+    <Compile Include="WebSite\Dto\CategoryInput.cs" />
+    <Compile Include="WebSite\Dto\CategoryOutput.cs" />
+    <Compile Include="WebSite\Dto\ProductOutput.cs" />
+    <Compile Include="WebSite\Dto\ProductInput.cs" />
     <Compile Include="WebSite\IWebSiteAppServer.cs" />
     <Compile Include="WebSite\WebSiteAppServer.cs" />
   </ItemGroup>

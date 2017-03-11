@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace FZY.Web.Controllers
 {
-    public class ContractController : FZYControllerBase
+    public class ContactController : FZYControllerBase
     {
         // GET: Contract
         public ActionResult Index()

@@ -46,5 +46,10 @@ namespace FZY.WebSite
         /// 排序
         /// </summary>
         public int Sort { set; get; }
+
+        /// <summary>
+        /// 产品类别
+        /// </summary>
+        public Category Category { set; get; }
     }
 }

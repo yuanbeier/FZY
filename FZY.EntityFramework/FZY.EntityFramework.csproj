@@ -160,6 +160,10 @@
     <Compile Include="Migrations\201702261231083_updateProduct.Designer.cs">
       <DependentUpon>201702261231083_updateProduct.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703101501171_AddCategory.cs" />
+    <Compile Include="Migrations\201703101501171_AddCategory.Designer.cs">
+      <DependentUpon>201703101501171_AddCategory.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="FZYDataModule.cs" />
@@ -212,6 +216,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201702261231083_updateProduct.resx">
       <DependentUpon>201702261231083_updateProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703101501171_AddCategory.resx">
+      <DependentUpon>201703101501171_AddCategory.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
