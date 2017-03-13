@@ -1,9 +1,9 @@
 ﻿(function() {
     $(function () {
         $.ajax({
-            url: virtualDirName + "api/services/app/webSiteAppServer/GetProductListAsync",
+            url: virtualDirName + "api/services/app/webSiteAppServer/GetCategoryListAsync",
             type: "Post",
-            data: JSON.stringify({ pageIndex: 1, pageCount: 100 }),
+            data: JSON.stringify({  pageIndex: 1, pageCount: 100 }),
             contentType: "application/json",
             success: function(data) {
                 if (data.success) {
