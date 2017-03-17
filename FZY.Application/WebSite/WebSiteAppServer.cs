@@ -107,7 +107,7 @@ namespace FZY.WebSite
                WhereIf(!string.IsNullOrEmpty(input.Name), x => x.Name == input.Name)
                .WhereIf(input.CategoryId.HasValue,x => x.CategoryId == input.CategoryId.Value);
             var count = query.Count();
-            var result = await query.OrderByDescending(x => x.CreationTime).Skip(input.SkipCount).Take(input.PageCount).ToListAsync();
+            var result = await query.OrderBy(x => x.Sort).ThenByDescending(x => x.CreationTime).Skip(input.SkipCount).Take(input.PageCount).ToListAsync();
             var reusltOut = result.MapTo<List<ProductOutput>>();
             foreach (var producOutput in reusltOut)
             {
@@ -172,7 +172,7 @@ namespace FZY.WebSite
             var query =_categoryRepository.GetAll().
             WhereIf(!string.IsNullOrEmpty(input.Name), x => x.Name == input.Name);
             var count = query.Count();
-            var result = await query.OrderByDescending(x => x.CreationTime).Skip(input.SkipCount).Take(input.PageCount).ToListAsync();
+            var result = await query.OrderBy(x => x.Sort).ThenByDescending(x => x.CreationTime).Skip(input.SkipCount).Take(input.PageCount).ToListAsync();
             var reusltOut = result.MapTo<List<CategoryOutput>>();
             foreach (var categoryOutput in reusltOut)
             {
